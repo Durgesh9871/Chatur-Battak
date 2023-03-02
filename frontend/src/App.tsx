@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { DisplayData } from './DisplayData';
 
 function App() {
   return (
     <div className="App">
-       <Displaydata />
+       <DisplayData />
     </div>
   );
 }
