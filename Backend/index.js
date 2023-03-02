@@ -3,12 +3,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connection=require("./config/db")
+
 app.use(
   cors({
     origin: "*",
   })
 );
 app.use(express.json());
+
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Game");
