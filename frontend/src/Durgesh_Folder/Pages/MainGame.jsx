@@ -9,6 +9,7 @@ import { RxSpeakerLoud, RxSpeakerOff } from "react-icons/rx";
 import { StackBox } from "../Components/StackBox";
 // import styled, { keyframes } from 'styled-components';
 import Duck from "./duck.png";
+import goldDuck from "./goldDuck.png"
 import Quiz from "../../Components/Quiz";
 
 const MainGame = () => {
@@ -159,7 +160,7 @@ const MainGame = () => {
 
    <Box  position="absolute" top="100px" left="40px"   zIndex="4">
     
-        <Quiz />
+        {/* <Quiz /> */}
      </Box>
 
         {/* user -2 ------ */}
