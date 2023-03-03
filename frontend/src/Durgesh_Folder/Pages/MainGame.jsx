@@ -100,9 +100,9 @@ const MainGame = () => {
               return (
                 <div key={i} >
                  
-             { i === increaseCount-1  &&  <Img src={Duck} position="absolute" width="5vw" border="2px solid red" alt="Duck"/>
+             { i === increaseCount-1  &&  <Img src={Duck} position="absolute" bottom="36px" width="6vw" border="2px solid red" alt="Duck"/>
             }
-                  <StackBox count={i+1} color={i%2 == 0 ? "white" :"black"} border={i%2 == 0 ? "black" :"#ffff"}  text={i%2 == 0 ? "black" :"#ffff"}/>
+                  <StackBox  count={i+1} color={i%2 == 0 ? "white" :"black"} border={i%2 == 0 ? "black" :"#ffff"}  text={i%2 == 0 ? "black" :"#ffff"}/>
                 </div>
             )
             })
