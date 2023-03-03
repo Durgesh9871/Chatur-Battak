@@ -2,13 +2,15 @@ import { Box, Button, Img } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
-import croco from "./Croco.png";
 import myAudioFile from "./audio.mp3";
 import beach from "./beach.mp3";
 import { RxSpeakerLoud, RxSpeakerOff } from "react-icons/rx";
 import { StackBox } from "../Components/StackBox";
 // import styled, { keyframes } from 'styled-components';
 import Duck from "./duck.png";
+import goldDuck from "./goldDuck.png"
+import Quiz from "../../Components/Quiz";
+import growDuck from "./growDuck.gif"
 
 const MainGame = () => {
   const [value, setValue] = useState(false);
@@ -115,11 +117,14 @@ const MainGame = () => {
         {/*  User-1 ---- */}
         <Box
           position="absolute"
-          bottom="110px"
+          bottom="160px"
           left="40px"
-          border="2px  black"
+          border="2px   black"
           zIndex="4"
+          // height="49%"
           display="flex"
+          flexDirection="column-reverse"
+          
         >
           {/* Duck drown in water --------- */}
           {increaseCount == 0 && <Box className="drownDuck"> </Box>}
@@ -128,20 +133,41 @@ const MainGame = () => {
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {i === increaseCount - 1 && (
+                  {((i === increaseCount-1  && i < 4)  && (
                     <Img
                       src={Duck}
                       position="absolute"
-                      bottom="36px"
+                     
                       right="3px"
                       width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
-                  )}
+                  )) || (i === increaseCount-1  && i >= 5)  && (
+                    <Img
+                      src={goldDuck}
+                      position="absolute"
+                     
+                      right="3px"
+                      width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
+                      border="2px  red"
+                      alt="Duck"
+                    />)  || (i === increaseCount-1  && i == 4)  && (
+                      <Img
+                        src={growDuck}
+                        position="absolute"
+                       
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCount == 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />)    }
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "white" : "black"}
+                    color={i % 2 == 0 ? "#deb093" : "black"}
                     border={i % 2 == 0 ? "black" : "#ffff"}
                     text={i % 2 == 0 ? "black" : "#ffff"}
                   />
@@ -149,38 +175,68 @@ const MainGame = () => {
               );
             })}
         </Box>
+   
+   {/*  Quiz is here in center */}
+
+   <Box  position="absolute" top="100px" left="40px"   zIndex="4">
+    
+        {/* <Quiz /> */}
+     </Box>
 
         {/* user -2 ------ */}
+        {/* Duck drown in water --------- */}
 
         <Box
           position="absolute"
-          top="200px"
-          left="40px"
+          bottom="160px"
+          right="40px"
           border="2px  black"
           zIndex="4"
           display="flex"
+          flexDirection="column-reverse"
+          
         >
-          {/* Duck drown in water --------- */}
-          {increaseCount == 0 && <Box className="drownDuckSecond"> </Box>}
+          {increaseCount == 0 && <Box className="drownDuckSecond"   > </Box>}
           {Array(increaseCount)
             .fill("")
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {i === increaseCount - 1 && (
+                  {((i === increaseCount-1  && i < 4)  && (
                     <Img
                       src={Duck}
                       position="absolute"
-                      bottom="36px"
-                      right="10px"
+                     
+                      right="3px"
                       width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
-                  )}
+                  )) || (i === increaseCount-1  && i >= 5)  && (
+                    <Img
+                      src={goldDuck}
+                      position="absolute"
+                     
+                      right="3px"
+                      width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
+                      border="2px  red"
+                      alt="Duck"
+                    />)  || (i === increaseCount-1  && i == 4)  && (
+                      <Img
+                        src={growDuck}
+                        position="absolute"
+                       
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCount == 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />)    }
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "white" : "black"}
+                    color={i % 2 == 0 ? "#deb093" : "black"}
                     border={i % 2 == 0 ? "black" : "#ffff"}
                     text={i % 2 == 0 ? "black" : "#ffff"}
                   />
@@ -188,6 +244,8 @@ const MainGame = () => {
               );
             })}
         </Box>
+
+
 
         <Button
           position="absolute"
