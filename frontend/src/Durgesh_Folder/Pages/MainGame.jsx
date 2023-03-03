@@ -5,11 +5,12 @@ import sky from "./Sky_cloud.png"
 import croco from "./Croco.png"
 import myAudioFile from './audio.mp3';
 import beach from "./beach.mp3"
-import {RxSpeakerQuiet} from "react-icons/rx"
+import {RxSpeakerQuiet ,RxSpeakerOff } from "react-icons/rx"
 
 
 
 const MainGame = () => {
+    const [value , setValue] = useState(false)
 
     const audioRef = useRef(null);
     const beachRef = useRef(null)
@@ -17,15 +18,20 @@ const MainGame = () => {
   const handlePlayClick = () => {
     audioRef.current.play();
     beachRef.current.play();
+    setValue(true)
   };
 
   const handlePauseClick = () => {
     audioRef.current.pause();
     beachRef.current.pause();
+    setValue(false)
   };
     
-  const handleSpeaker = ()=>{
+ 
 
+
+  const volumeButtonStyle={
+    border:"1px solid black" , fontSize:"22px" , borderRadius:"100%" ,padding:"8px" , cursor:"pointer"
   }
 
   return (
@@ -37,10 +43,10 @@ const MainGame = () => {
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
-      <button onClick={handlePlayClick}>Play</button>
-      <button onClick={handlePauseClick}>Pause</button>
+      {/* <button onClick={handlePlayClick}>Play</button>
+      <button onClick={handlePauseClick}>Pause</button> */}
 
-      <Box > <RxSpeakerQuiet onClick={handleSpeaker} style={{border:"1px solid black" , fontSize:"20px" , borderRadius:"100%" ,padding:"10px" , cursor:"pointer"}}/> </Box>
+      <Box >{value ?  <RxSpeakerQuiet onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
         
 
 
