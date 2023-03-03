@@ -26,7 +26,7 @@ const MainGame = () => {
         </Box>
 
          {/* Croco */}
-         <Box display="flex" >
+         <Box  >
 
         <Box className='crocoLunch'> </Box>
         <Box className='crocoLunchRotate'></Box>
