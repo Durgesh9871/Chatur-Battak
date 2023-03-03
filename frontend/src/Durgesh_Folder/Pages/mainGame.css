@@ -1,2 +1,41 @@
-
-
+.flamethrower {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 40px 20px 0;
+    border-color: red transparent transparent;
+    opacity: 0;
+    animation: flamethrower 2s ease-out forwards;
+  }
+  
+  .flamethrower.active {
+    animation-play-state: running;
+  }
+  
+  @keyframes flamethrower {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    10% {
+      width: 20px;
+      height: 40px;
+      opacity: 1;
+    }
+    90% {
+      width: 20px;
+      height: 40px;
+      opacity: 1;
+    }
+    100% {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+  
