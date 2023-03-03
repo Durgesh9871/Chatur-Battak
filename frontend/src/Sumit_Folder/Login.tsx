@@ -8,6 +8,8 @@ import {
   Heading,
   HStack,
   Input,
+  InputGroup,
+  InputRightElement,
   Stack,
   Text,
   useToast,
@@ -15,9 +17,10 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/Context/AuthContext";
-import { PasswordField } from "./PasswordField";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import "./Signup.css";
 export const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = React.useContext(AuthContext);
@@ -28,7 +31,7 @@ export const Login = () => {
       email,
       password,
     };
-    fetch("https://cheerful-lime-firefly.cyclic.app/users/login", {
+    fetch("http://localhost:8080/user/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -49,7 +52,7 @@ export const Login = () => {
             isClosable: true,
           });
           setTimeout(() => {
-            Navigate("/");
+            Navigate("/homepage");
           }, 2200);
         }
       })
@@ -79,7 +82,7 @@ export const Login = () => {
               </Heading>
               <HStack spacing="1" justify="center">
                 <Text color="muted">Already have an account?</Text>
-                <Button variant="link" colorScheme="blue">
+                <Button onClick={()=>Navigate("/signup")} variant="link" colorScheme="blue">
                   Sign up
                 </Button>
               </HStack>
@@ -106,9 +109,31 @@ export const Login = () => {
                     border="1px solid #562B08"
                     id="email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </FormControl>
-                <PasswordField />
+                <FormControl id="password" isRequired>
+                  <FormLabel>Password</FormLabel>
+                  <InputGroup>
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Enter Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <InputRightElement h={"full"}>
+                      <Button
+                        variant={"ghost"}
+                        onClick={() =>
+                          setShowPassword((showPassword) => !showPassword)
+                        }
+                      >
+                        {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormControl>
               </Stack>
               <HStack justify="space-between">
                 <Checkbox defaultChecked>Remember me</Checkbox>
@@ -117,12 +142,13 @@ export const Login = () => {
                   variant="link"
                   colorScheme="blue"
                   size="sm"
+                 
                 >
                   Forgot password?
                 </Button>
               </HStack>
               <Stack spacing="6">
-                <Button bg="blue.300" variant="primary">
+                <Button  onClick={() => HandleLogin()} bg="blue.300" variant="primary">
                   Sign in
                 </Button>
               </Stack>
