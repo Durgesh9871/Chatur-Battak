@@ -1,5 +1,5 @@
 import { Box, Button, Img } from '@chakra-ui/react'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./mainGame.css"
 import sky from "./Sky_cloud.png"
 import croco from "./Croco.png"
@@ -27,11 +27,12 @@ const MainGame = () => {
     setValue(false)
   };
     
+  
  
 
 
   const volumeButtonStyle={
-    border:"1px solid black" , fontSize:"22px" , borderRadius:"100%" ,padding:"8px" , cursor:"pointer"
+    border:"2px solid #ffff" , fontSize:"22px" , borderRadius:"100%" ,padding:"10px" , cursor:"pointer" ,backgroundColor:"black",color:"#ffff"
   }
 
   return (
