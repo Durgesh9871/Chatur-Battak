@@ -151,3 +151,28 @@
     background-size: cover;
     height: 100vh;
 }
+
+.crocoStop{
+    background: url(croLunch.gif);
+    z-index: 1;
+    background-repeat: no-repeat;
+    height: 180px;
+    position: relative;
+    top: -160px;
+    width: 300px;
+   
+
+}
+
+.crocoLunchStop{
+    background: url(croLunch_rotate.gif);
+    z-index: 2;
+    /* border: 2px solid red; */
+    background-repeat: no-repeat;
+    height: 190px;
+    width: 300px ;
+    position: relative;
+    top: -5vh ;
+    left: 2px;
+  
+}

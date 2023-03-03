@@ -58,17 +58,21 @@ const MainGame = () => {
   return (
     <Box className='mainGameBox'  >
          
-        {/*  Water is here ------------- */}
-        <Box id='firstPlayerWinner'>
+        {/*  Game Stop 1st player is here ------------- */}
+        <Box id='firstPlayerWinner' overflow="hidden" display="none">
           
           {/* Box for crocodile ------- */}
-          <Box></Box>
-          <Box></Box>
+          <Img src={sky} alt="sky1" height="200px" />
+          <Img src={sky} alt="sky2" height="200px" />
+
+          {/* Crocodile */}
+          <Box className='crocoStop'> </Box>
+        <Box className='crocoLunchStop'></Box>
         </Box>
          
 
          {/*  Game Start from here ------------------------ */}
-        <Box className='waterMain' display="none">
+        <Box className='waterMain' overflow="hidden" display="none">
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
@@ -81,10 +85,10 @@ const MainGame = () => {
 
        <Box  display="flex"   > 
          <Box className='sky'>
-            <Img src={sky} alt="sky1" height="250px" />
+            <Img src={sky} alt="sky1" height="200px" />
          </Box>
          <Box className='sky2'>
-            <Img src={sky} alt="sky2" height="300px" />
+            <Img src={sky} alt="sky2" height="240px" />
          </Box>
          
         </Box>
