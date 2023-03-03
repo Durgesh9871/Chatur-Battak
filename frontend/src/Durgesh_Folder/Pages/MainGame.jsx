@@ -59,20 +59,18 @@ const MainGame = () => {
     <Box className='mainGameBox'  >
          
         {/*  Game Stop 1st player is here ------------- */}
-        <Box id='firstPlayerWinner' overflow="hidden" display="none">
+        <Box id='playerWinner' overflow="hidden" display="none">
           
           {/* Box for crocodile ------- */}
+          <Box display="flex" justifyContent="space-around">
           <Img src={sky} alt="sky1" height="200px" />
           <Img src={sky} alt="sky2" height="200px" />
-
-          {/* Crocodile */}
-          <Box className='crocoStop'> </Box>
-        <Box className='crocoLunchStop'></Box>
+          </Box>
         </Box>
          
 
          {/*  Game Start from here ------------------------ */}
-        <Box className='waterMain' overflow="hidden" display="none">
+        <Box className='waterMain' overflow="hidden" display="block">
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
