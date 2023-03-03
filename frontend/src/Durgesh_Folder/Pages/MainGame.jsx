@@ -16,6 +16,7 @@ import Duck from "./duck.png"
 const MainGame = () => {
     const [value , setValue] = useState(false)
     const [increaseCount , setIncreaseCount] = useState(3)
+    const [increaseCountUserTwo , setIncreaseCountUserTwo] = useState(3)
     const [showAnimation, setShowAnimation] = useState(true);
     const [game ,setGame] = useState(false)
 
