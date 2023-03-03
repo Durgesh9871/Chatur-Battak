@@ -1,14 +1,11 @@
-import React from 'react';
-import './App.css';
-import {Box} from "@chakra-ui/react"
-// import { DisplayData } from './DisplayData';
-import Homepage from "./Akshay_Folder/pages/Homepage"
+import React from "react";
+import "./App.css";
+import { Box } from "@chakra-ui/react";
+import AllRoutes from "./Components/AllRoutes";
 function App() {
   return (
     <Box>
-       {/* <DisplayData /> */}
-       <Homepage/>
-
+      <AllRoutes />
     </Box>
   );
 }
