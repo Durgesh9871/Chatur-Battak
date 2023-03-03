@@ -156,10 +156,11 @@ const MainGame = () => {
         </Box>
    
    {/*  Quiz is here in center */}
-   {/* <Box  position="absolute" top="00px" left="40px"   zIndex="4">
-     hello
+
+   <Box  position="absolute" top="100px" left="40px"   zIndex="4">
+    
         <Quiz />
-     </Box> */}
+     </Box>
 
         {/* user -2 ------ */}
         {/* Duck drown in water --------- */}
