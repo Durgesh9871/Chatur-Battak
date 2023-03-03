@@ -108,7 +108,7 @@
     height: 200px;
     width: 300px ;
     position: relative;
-    top: -80px;
+    top: -40px;
     left: 2px;
     animation: crocodileLunch 9s linear infinite;
 }
