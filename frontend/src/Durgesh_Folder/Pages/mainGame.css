@@ -10,7 +10,7 @@
     }
 
     100% {
-        left: -40vw;
+        left: -50vw;
     }
 }
 
@@ -25,12 +25,38 @@
 
 .sky{
     background-size: contain;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 700px;
     height: 350px;
     position: relative;
         top: -40px ;
         left: 2px ;
-        /* animation: move 4s linear infinite; */
+        animation: move 8s linear infinite;
+        /* overflow: hidden; */
+}
+
+/*  Second cloud ----- */
+
+@keyframes moveTwo {
+    0% {
+        left: -50vw;
+
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+
+.sky2{
+    background-size: contain;
+    /* border: 2px solid green; */
+    width: 500px;
+    height: 350px;
+    position: relative;
+        top: -70px ;
+        left: 2px ;
+        animation: moveTwo 8s linear infinite;
         /* overflow: hidden; */
 }

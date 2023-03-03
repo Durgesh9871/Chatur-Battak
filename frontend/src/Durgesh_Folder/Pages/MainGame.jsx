@@ -12,9 +12,12 @@ const MainGame = () => {
   return (
     <Box className='mainGameBox' overflow="hidden" >
         {/*  Water is here ------------- */}
-       <Box className='waterMain' > 
+       <Box className='waterMain' display="flex" justifyContent="space-around" > 
          <Box className='sky'>
-            <img src={sky} alt="" />
+            <img src={sky} alt="sky1" />
+         </Box>
+         <Box className='sky2'>
+            <img src={sky} alt="sky2" />
          </Box>
         </Box>
     </Box>
