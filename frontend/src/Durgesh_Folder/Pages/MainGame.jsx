@@ -202,20 +202,41 @@ const MainGame = () => {
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {i === increaseCount - 1 && (
+                  {((i === increaseCount-1  && i < 4)  && (
                     <Img
                       src={Duck}
                       position="absolute"
-                      bottom={increaseCount == 1 && "36px"}
-                      right="10px"
+                     
+                      right="3px"
                       width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
-                  )}
+                  )) || (i === increaseCount-1  && i >= 5)  && (
+                    <Img
+                      src={goldDuck}
+                      position="absolute"
+                     
+                      right="3px"
+                      width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
+                      border="2px  red"
+                      alt="Duck"
+                    />)  || (i === increaseCount-1  && i == 4)  && (
+                      <Img
+                        src={growDuck}
+                        position="absolute"
+                       
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCount == 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />)    }
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "white" : "black"}
+                    color={i % 2 == 0 ? "#deb093" : "black"}
                     border={i % 2 == 0 ? "black" : "#ffff"}
                     text={i % 2 == 0 ? "black" : "#ffff"}
                   />
