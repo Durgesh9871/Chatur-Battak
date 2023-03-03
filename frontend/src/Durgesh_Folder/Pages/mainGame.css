@@ -78,9 +78,9 @@
     background: url(croLunch.gif);
     z-index: 1;
     background-repeat: no-repeat;
-    height: 180px;
+    height: 170px;
     position: relative;
-    top: -160px;
+    top: -195px;
     width: 300px;
     animation: crocodile 9s linear infinite;
 
