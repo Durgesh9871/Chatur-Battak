@@ -5,12 +5,12 @@
 
 @keyframes move {
     0% {
-        top: 0vh;
+        left: 0vh;
 
     }
 
     100% {
-        top: 90vh;
+        left: 100vw;
     }
 }
 
@@ -24,14 +24,13 @@
 }
 
 .cro{
-    /* background-image: url(sky.png); */
-    background-size: cover;
+    background-size: contain;
+    border: 2px solid red;
     width: 400px;
     height: 200px;
-    background: transparent;
     position: relative;
-        top: 2;
-        left: 2;
-        animation: move 2s linear infinite;
-        overflow: hidden;
+        top: -40px ;
+        left: 2px ;
+        /* animation: move 4s linear infinite;
+        overflow: hidden; */
 }

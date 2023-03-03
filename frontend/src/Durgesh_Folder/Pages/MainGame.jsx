@@ -10,7 +10,7 @@ const MainGame = () => {
     
 
   return (
-    <Box className='mainGameBox'>
+    <Box className='mainGameBox' overflow="hidden" >
         {/*  Water is here ------------- */}
        <Box className='waterMain' > 
          <Box className='cro'>
