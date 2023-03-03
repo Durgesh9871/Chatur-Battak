@@ -10,7 +10,7 @@ import { StackBox } from "../Components/StackBox";
 import Duck from "./duck.png";
 import goldDuck from "./goldDuck.png"
 import Quiz from "../../Components/Quiz";
-import croLunch from "./croLunch.gif"
+import growDuck from "./growDuck.gif"
 
 const MainGame = () => {
   const [value, setValue] = useState(false);
@@ -156,7 +156,7 @@ const MainGame = () => {
                       alt="Duck"
                     />)  || (i === increaseCount-1  && i == 4)  && (
                       <Img
-                        src={croLunch}
+                        src={growDuck}
                         position="absolute"
                        
                         right="3px"
@@ -167,7 +167,7 @@ const MainGame = () => {
                       />)    }
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "white" : "black"}
+                    color={i % 2 == 0 ? "#deb093" : "black"}
                     border={i % 2 == 0 ? "black" : "#ffff"}
                     text={i % 2 == 0 ? "black" : "#ffff"}
                   />
