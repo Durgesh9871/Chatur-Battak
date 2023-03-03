@@ -8,25 +8,20 @@ import { DisplayData } from "../DisplayData";
 import { Login } from "../Sumit_Folder/Login";
 import { Signup } from "../Sumit_Folder/Signup";
 import PrivateRoute from "./PrivateRoutes";
+import Quiz from "./Quiz";
 
 const AllRoutes = () => {
   return (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Lns/>}></Route>
-        <Route path="/homepage" element={<Homepage/>}></Route>
-        <Route path="/newgame" element={<NewGame/>}></Route>
-        <Route path="/joingame" element={<JoinGame/>}></Route>
-        <Route
-          path="/game"
-          element={
-            <PrivateRoute>
-              <DisplayData />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/" element={<Lns />}></Route>
+      <Route path="/homepage" element={<Homepage />}></Route>
+      <Route path="/newgame" element={<NewGame />}></Route>
+      <Route path="/joingame" element={<JoinGame />}></Route>
+      <Route path="/game" element={<DisplayData />} />
+      <Route path="/quiz" element={<Quiz />} />
+    </Routes>
   );
 };
 
