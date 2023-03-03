@@ -1,0 +1,75 @@
+*{
+    padding:0px
+;margin: 0px;
+
+}
+@font-face {
+    font-family: "Press2p";
+    src: url("./Assets/PressStart2P-Regular.ttf");
+}
+.main{
+    background-image: url(water_Image.gif);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: "center";
+    align-items: center;
+}
+.gamebox{
+box-shadow: 
+    0 0 0 10px #98ee52,
+    0 0 0 15px #53d480,
+    0 0 0 20px #55a466,
+    0 0 0 25px #6a8e4e,
+    0 0 0 30px #918c27;
+width: 30%;
+height:20%;
+margin: auto;
+border-radius: 20px;
+background-color: #918c27;
+display: flex;
+flex-direction: column;
+gap: 20px;
+align-items: center;
+justify-content: center;
+}
+.buttons{
+    color: red;
+    /* background-color:black; */
+    font-family: "Press2p";
+    padding: 10px 0 10px 10px ;
+    text-shadow: -1px -1px black, 1px 1px white;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
+.head{
+    text-shadow: 1px 1px pink, -1px -1px maroon;
+	line-height: 1.5em;
+    font-family: "Press2p";
+	text-align: center;
+	display: inline-block;
+    padding:5px;
+    -webkit-border-radius: .75em;
+	-moz-border-radius: .75em;
+	-o-border-radius: .75em;
+		border-radius: .75em;
+	background-color: red;
+	-webkit-box-shadow:  0 .2em maroon;
+	-moz-box-shadow:  0 .2em maroon;
+	-o-box-shadow:  0 .2em maroon;
+	box-shadow:  0 .2em maroon;
+	color: black;
+	margin: 5px;
+	background-color: red;
+	background-image: -o-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: -moz-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: -webkit-linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	background-image: linear-gradient(left top, pink 3%, red 22%, maroon 99%);
+	cursor: pointer;
+  padding-left: 5px;
+}

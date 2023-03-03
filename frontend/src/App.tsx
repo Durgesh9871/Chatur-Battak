@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { DisplayData } from './DisplayData';
-
+import {Box} from "@chakra-ui/react"
+// import { DisplayData } from './DisplayData';
+import Homepage from "./Akshay_Folder/pages/Homepage"
 function App() {
   return (
-    <div className="App">
-       <DisplayData />
-    </div>
+    <Box>
+       {/* <DisplayData /> */}
+       <Homepage/>
+
+    </Box>
   );
 }
 
