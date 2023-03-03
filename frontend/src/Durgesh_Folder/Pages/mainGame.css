@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes move {
+    0% {
+        left: 100vw;
+
+    }
+
+    100% {
+        left: -50vw;
+    }
+}
+
+.waterMain{
+    background-color: red;
+    background-image: url(water_Image.gif);
+    background-size: cover;
+    height: 100vh;
+    
+
+}
+
+.sky{
+    background-size: contain;
+    /* border: 2px solid red; */
+    width: 700px;
+    position: relative;
+        top: -60px ;
+        left: 2px ;
+        animation: move 4s linear infinite;
+        /* overflow: hidden; */
+}
+
+/*  Second cloud ----- */
+
+@keyframes moveTwo {
+    0% {
+        left: 130vw;
+
+    }
+
+    100% {
+        left: -100vw;
+    }
+}
+
+
+.sky2{
+    background-size: contain;
+    /* border: 2px solid green; */
+    width: 500px;
+    height: 350px;
+    position: relative;
+        top: -70px ;
+        left: 2px ;
+        animation: moveTwo 9s linear infinite;
+        /* overflow: hidden; */
+}

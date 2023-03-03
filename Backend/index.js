@@ -2,9 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 const connection=require("./config/db")
 const {userrouter}=require("./Routes/user.route");
 const { middleware } = require("./Middlewere/middleware");
+
 
 app.use(
   cors({
@@ -26,6 +28,8 @@ app.use("/user",userrouter)
 
 
 
+
+app.use("/games",GameRoute)
 
 app.listen(process.env.port, async () => {
   try {
