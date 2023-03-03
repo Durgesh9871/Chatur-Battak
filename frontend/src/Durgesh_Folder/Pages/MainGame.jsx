@@ -43,11 +43,31 @@ const MainGame = () => {
  
  const handleCountMi = ()=>{
   // let but = document.querySelector(".one0")
-
- 
   setIncreaseCount((prev)=>prev-1)
+}
 
- }
+//  Game over 
+
+const performTask = () => {
+  console.log("Task performed!");
+  // Perform your task here
+};
+ 
+const item1Ref = useRef(null);
+const item2Ref = useRef(null);
+ 
+
+if (item1Ref.current && item2Ref.current) {
+  const item1Rect = item1Ref.current.getBoundingClientRect();
+  const item2Rect = item2Ref.current.getBoundingClientRect();
+
+  // if (item2Rect.bottom === 0 && item2Rect.bottom === item1Rect.top) {
+  //   performTask();
+  // }
+  console.log(item2Rect.left , "left")
+  console.log(item1Rect.left , "right")
+}
+
  
 
 
@@ -94,7 +114,7 @@ const MainGame = () => {
          <Box  >
 
         <Box className='crocoLunch'> </Box>
-        <Box className='crocoLunchRotate'></Box>
+        <Box className='crocoLunchRotate' ref={item2Ref}></Box>
 
         </Box>
 
@@ -103,13 +123,13 @@ const MainGame = () => {
        
        <Box position="absolute" bottom="110px" left="40px"  border="2px  black"  zIndex="4" display="flex">
                     {/* Duck drown in water --------- */}
-     {increaseCount == 0 && <Box className='drownDuck'> </Box>}
+     {increaseCount == 0 && <Box className='drownDuck' ref={item1Ref}> </Box>}
           {
             Array(increaseCount).fill('').map((_,i)=>{
               return (
                 <div key={i} >
                  
-             { i === increaseCount-1  &&  <Img src={Duck} position="absolute" bottom="36px" right="3px" width="6vw" border="2px  red" alt="Duck"/>
+             { i === increaseCount-1  &&  <Img  src={Duck} position="absolute" bottom="36px" right="3px" width="6vw" border="2px  red" alt="Duck"/>
             }
                   <StackBox  count={i+1} color={i%2 == 0 ? "white" :"black"} border={i%2 == 0 ? "black" :"#ffff"}  text={i%2 == 0 ? "black" :"#ffff"}/>
                 </div>
