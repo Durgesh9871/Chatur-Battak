@@ -132,6 +132,6 @@
     position: relative;
     top: -40px;
     left: 2px;
-    animation: dieFirst 9s linear infinite;
+    animation: dieFirst 2s ease-in;
 }
 
