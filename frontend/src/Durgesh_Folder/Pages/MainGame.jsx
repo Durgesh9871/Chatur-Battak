@@ -61,11 +61,10 @@ if (item1Ref.current && item2Ref.current) {
   const item1Rect = item1Ref.current.getBoundingClientRect();
   const item2Rect = item2Ref.current.getBoundingClientRect();
 
-  // if (item2Rect.bottom === 0 && item2Rect.bottom === item1Rect.top) {
-  //   performTask();
-  // }
-  console.log(item2Rect.left , "left")
-  console.log(item1Rect.left , "right")
+  if (item2Rect.left === 0 && item1Rect.left === item1Rect.top) {
+    performTask();
+  }
+  
 }
 
  
