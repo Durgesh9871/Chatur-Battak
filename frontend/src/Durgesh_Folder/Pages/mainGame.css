@@ -116,23 +116,6 @@
 
 /*  Stack animation ------ */
 
-@keyframes crocodileLunch {
-    0% {
-        top: 0vh;
 
-    }
-
-    100% {
-        top: 100vh;
-    }
-}
-
-.one0{
-    /* position: relative;
-    top: -50px ;
-    left: 2px ;
-    animation: crocodileLunch 9s linear infinite; */
-    
-}
 
 
