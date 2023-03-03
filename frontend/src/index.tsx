@@ -10,7 +10,6 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-<BrowserRouter>
   <ChakraProvider>
     <AuthContextProvider>
       <BrowserRouter>
@@ -18,7 +17,6 @@ root.render(
       </BrowserRouter>
     </AuthContextProvider>
   </ChakraProvider>
-</BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
