@@ -164,15 +164,17 @@ const MainGame = () => {
         {/* user -2 ------ */}
         {/* Duck drown in water --------- */}
 
-        {/* <Box
+        <Box
           position="absolute"
-          top="200px"
-          left="40px"
+          bottom="160px"
+          right="40px"
           border="2px  black"
           zIndex="4"
           display="flex"
+          flexDirection="column-reverse"
+          
         >
-          {increaseCount == 0 && <Box className="drownDuckSecond"> </Box>}
+          {increaseCount == 0 && <Box className="drownDuckSecond"   > </Box>}
           {Array(increaseCount)
             .fill("")
             .map((_, i) => {
@@ -182,7 +184,7 @@ const MainGame = () => {
                     <Img
                       src={Duck}
                       position="absolute"
-                      bottom="36px"
+                      bottom={increaseCount == 1 && "36px"}
                       right="10px"
                       width="6vw"
                       border="2px  red"
@@ -198,7 +200,8 @@ const MainGame = () => {
                 </div>
               );
             })}
-        </Box> */}
+        </Box>
+
 
         <Button
           position="absolute"
