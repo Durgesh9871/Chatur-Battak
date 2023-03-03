@@ -1,0 +1,5 @@
+.background-image {
+    background-image: url('./water_Image.gif');
+    background-size: cover;
+    background-position: center;
+  }
