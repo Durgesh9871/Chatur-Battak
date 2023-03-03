@@ -6,8 +6,8 @@ import "./mainGame.css"
 
 const MainGame = () => {
   return (
-    <Box className='hello'>
-        <h1 id='mainHeading' >hello</h1>
+    <Box className='mainGameBox'>
+      
     </Box>
   )
 }
