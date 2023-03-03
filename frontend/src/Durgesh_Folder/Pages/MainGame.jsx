@@ -1,20 +1,43 @@
-import { Box, Img } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { Box, Button, Img } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
 import "./mainGame.css"
 import sky from "./Sky_cloud.png"
 import croco from "./Croco.png"
-// import croLunch from "./croLunch.gif"
+import myAudioFile from './audio.mp3';
+import beach from "./beach.mp3"
 
 
 
 const MainGame = () => {
-    
+
+    const audioRef = useRef(null);
+    const beachRef = useRef(null)
+
+  const handlePlayClick = () => {
+    audioRef.current.play();
+    beachRef.current.play();
+  };
+
+  const handlePauseClick = () => {
+    audioRef.current.pause();
+    beachRef.current.pause();
+  };
     
 
   return (
     <Box className='mainGameBox' overflow="hidden" >
+         
         {/*  Water is here ------------- */}
+        
         <Box className='waterMain'>
+            {/* Audio */}
+        <audio src={myAudioFile} loop ref={audioRef} />
+        <audio src={beach} loop ref={beachRef} />
+      <button onClick={handlePlayClick}>Play</button>
+      <button onClick={handlePauseClick}>Pause</button>
+        
+
+
        <Box  display="flex"   > 
          <Box className='sky'>
             <Img src={sky} alt="sky1" height="250px" />
@@ -32,6 +55,9 @@ const MainGame = () => {
         <Box className='crocoLunchRotate'></Box>
 
         </Box>
+
+       
+      
 
          
 
