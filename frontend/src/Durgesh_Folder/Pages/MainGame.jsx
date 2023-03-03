@@ -7,7 +7,7 @@ import myAudioFile from './audio.mp3';
 import beach from "./beach.mp3"
 import {RxSpeakerLoud ,RxSpeakerOff } from "react-icons/rx"
 import { StackBox } from '../Components/StackBox'
-import styled, { keyframes } from 'styled-components';
+// import styled, { keyframes } from 'styled-components';
 import Duck from "./duck.png"
 
 
@@ -52,7 +52,7 @@ const MainGame = () => {
 
 
   const volumeButtonStyle={
-    border:"2px solid #ffff" , fontSize:"22px" , borderRadius:"100%" ,padding:"10px" , cursor:"pointer" ,backgroundColor:"black",color:"#ffff"
+    border:"2px solid #ffff" , fontSize:"45px" , borderRadius:"100%" ,padding:"8px" , cursor:"pointer" ,backgroundColor:"black",color:"#ffff"
   }
 
   return (
@@ -77,7 +77,7 @@ const MainGame = () => {
       {/* <button onClick={handlePlayClick}>Play</button>
       <button onClick={handlePauseClick}>Pause</button> */}
 
-      <Box zIndex="10" position="absolute"  right="15px" top="10px">{value ?  <RxSpeakerLoud onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
+      <Box zIndex="10" position="absolute"  right="20px" top="20px">{value ?  <RxSpeakerLoud onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
         
 
        <Box  display="flex"   > 
