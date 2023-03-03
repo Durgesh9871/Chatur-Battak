@@ -14,7 +14,7 @@ import styled, { keyframes } from 'styled-components';
 
 const MainGame = () => {
     const [value , setValue] = useState(false)
-    const [increaseCount , setIncreaseCount] = useState(5)
+    const [increaseCount , setIncreaseCount] = useState(0)
     const [showAnimation, setShowAnimation] = useState(true);
 
     const audioRef = useRef(null);
@@ -92,8 +92,8 @@ const MainGame = () => {
       {/*  Stack game of student-----------------------  */}
        
        <Box position="absolute" bottom="110px" left="40px"  border="2px  black"  zIndex="4" display="flex">
-             
-
+                    
+     {increaseCount == 0 && <Box className='drownDuck'> hello</Box>}
           {
             Array(increaseCount).fill('').map((_,i)=>{
               return (
@@ -108,7 +108,7 @@ const MainGame = () => {
           }
        </Box>
           <Button position="absolute" onClick={handleCount} top="100px" left="240px">plus</Button>
-          <Button position="absolute" onClick={handleCountMi} top="60px" left="240px"></Button>
+          <Button position="absolute" onClick={handleCountMi} top="60px" left="240px">sub</Button>
       
 
          

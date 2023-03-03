@@ -128,10 +128,13 @@
 }
 
 
-.friendGone{
-    position: relative;
-    top: -40px;
-    left: 2px;
-    animation: dieFirst 2s ease-in;
+.drownDuck{
+    background: url(duckDrown.gif);
+    position: absolute;
+    /* z-index: 3; */
+    top: 40px;
+    left: 20px ;
+   
+    /* animation: dieFirst 2s ease-in;  */
 }
 
