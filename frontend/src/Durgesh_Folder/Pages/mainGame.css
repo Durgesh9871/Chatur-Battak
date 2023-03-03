@@ -136,6 +136,19 @@
     left: 2px ;
    height: 100px;
    width: 200px;
+    
+}
+
+.drownDuckSecond{
+    background: url(duckDrown.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    /* z-index: 1; */
+    top: 10vh;
+    left: 2px ;
+   height: 100px;
+   width: 200px;
     /* animation: dieFirst 2s ease-in;  */
 }
 

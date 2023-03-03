@@ -71,7 +71,7 @@ useEffect(()=>{
     <Box className='mainGameBox'  >
          
         {/*  Game Stop 1st player is here ------------- */}
-        <Box id='playerWinner' overflow="hidden" display={game ? "block" :"none"}>
+        <Box id='playerWinner' overflow="hidden" display={"none"}>
           
           {/* Box for crocodile ------- */}
           <Box display="flex" justifyContent="space-around">
@@ -82,7 +82,7 @@ useEffect(()=>{
          
 
          {/*  Game Start from here ------------------------ */}
-        <Box className='waterMain' overflow="hidden" display={game ? "none" :"block"} >
+        <Box className='waterMain' overflow="hidden" display={"block"} >
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
@@ -112,7 +112,8 @@ useEffect(()=>{
 
       
       {/*  Stack game of student-----------------------  */}
-       
+         
+         {/*  User-1 ---- */}
        <Box position="absolute" bottom="110px" left="40px"  border="2px  black"  zIndex="4" display="flex">
                     {/* Duck drown in water --------- */}
      {increaseCount == 0 && <Box className='drownDuck'  > </Box>}
@@ -129,8 +130,31 @@ useEffect(()=>{
             })
           }
        </Box>
-          <Button position="absolute" onClick={handleCount} top="100px" left="240px">plus</Button>
-          <Button position="absolute" onClick={handleCountMi} top="60px" left="240px">sub</Button>
+
+
+       {/* user -2 ------ */}
+
+       <Box position="absolute" top="200px" left="40px"  border="2px  black"  zIndex="4" display="flex" >
+                    {/* Duck drown in water --------- */}
+     {increaseCount == 0 && <Box className='drownDuckSecond'  > </Box>}
+          {
+            Array(increaseCount).fill('').map((_,i)=>{
+              return (
+                <div key={i} >
+                 
+             { i === increaseCount-1   &&  <Img  src={Duck} position="absolute" bottom="36px" right="10px" width="6vw" border="2px  red" alt="Duck"/>
+            }
+                  <StackBox  count={i+1} color={i%2 == 0 ? "white" :"black"} border={i%2 == 0 ? "black" :"#ffff"}  text={i%2 == 0 ? "black" :"#ffff"}/>
+                </div>
+            )
+            })
+          }
+       </Box>
+
+
+
+          <Button position="absolute" onClick={handleCount} top="10px" left="240px">plus</Button>
+          <Button position="absolute" onClick={handleCountMi} top="50px" left="240px">sub</Button>
       
 
          
