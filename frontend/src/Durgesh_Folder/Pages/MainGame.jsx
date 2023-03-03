@@ -5,7 +5,7 @@ import sky from "./Sky_cloud.png"
 import croco from "./Croco.png"
 import myAudioFile from './audio.mp3';
 import beach from "./beach.mp3"
-import {RxSpeakerQuiet ,RxSpeakerOff } from "react-icons/rx"
+import {RxSpeakerLoud ,RxSpeakerOff } from "react-icons/rx"
 
 
 
@@ -47,7 +47,7 @@ const MainGame = () => {
       {/* <button onClick={handlePlayClick}>Play</button>
       <button onClick={handlePauseClick}>Pause</button> */}
 
-      <Box >{value ?  <RxSpeakerQuiet onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
+      <Box zIndex="10" position="absolute"  right="15px" top="10px">{value ?  <RxSpeakerLoud onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
         
 
 
