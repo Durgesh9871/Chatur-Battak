@@ -12,6 +12,7 @@ import { StackBox } from '../Components/StackBox'
 
 const MainGame = () => {
     const [value , setValue] = useState(false)
+    const [increaseCount , setIncreaseCount] = useState(5)
 
     const audioRef = useRef(null);
     const beachRef = useRef(null)
@@ -28,7 +29,9 @@ const MainGame = () => {
     setValue(false)
   };
     
-  let loopLength = 5
+ const handleCount = ()=>{
+  
+ }
   
  
 
@@ -74,16 +77,17 @@ const MainGame = () => {
       
       {/*  Stack game of student-----------------------  */}
        
-       <Box position="absolute" bottom="130px" left="40px" border="2px solid black" height="400px">
+       <Box position="absolute" bottom="130px" left="40px" border="2px solid black" height="400px" zIndex="4">
           {
-            Array(5).fill('').map((_,i)=>{
+            Array(increaseCount).fill('').map((_,i)=>{
               return (
 
-                <StackBox count={1} />
+                <StackBox count={i+1}  key={i}/>
             )
             })
           }
        </Box>
+          <Button position="absolute" onClick={handleCount} bottom="130px" left="240px">hello</Button>
       
 
          
