@@ -48,26 +48,7 @@ const MainGame = () => {
 
 //  Game over 
 
-const performTask = () => {
-  console.log("Task performed!");
-  // Perform your task here
-};
- 
-const item1Ref = useRef(null);
-const item2Ref = useRef(null);
- 
 
-if (item1Ref.current && item2Ref.current) {
-  const item1Rect = item1Ref.current.getBoundingClientRect();
-  const item2Rect = item2Ref.current.getBoundingClientRect();
-
-  if (item2Rect.left === 0 && item1Rect.left === item1Rect.top) {
-    performTask();
-  }
-  
-}
-
- 
 
 
   const volumeButtonStyle={
@@ -113,7 +94,7 @@ if (item1Ref.current && item2Ref.current) {
          <Box  >
 
         <Box className='crocoLunch'> </Box>
-        <Box className='crocoLunchRotate' ref={item2Ref}></Box>
+        <Box className='crocoLunchRotate' ></Box>
 
         </Box>
 
@@ -122,7 +103,7 @@ if (item1Ref.current && item2Ref.current) {
        
        <Box position="absolute" bottom="110px" left="40px"  border="2px  black"  zIndex="4" display="flex">
                     {/* Duck drown in water --------- */}
-     {increaseCount == 0 && <Box className='drownDuck' ref={item1Ref}> </Box>}
+     {increaseCount == 0 && <Box className='drownDuck'  > </Box>}
           {
             Array(increaseCount).fill('').map((_,i)=>{
               return (
