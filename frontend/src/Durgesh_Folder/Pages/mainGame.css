@@ -10,7 +10,7 @@
     }
 
     100% {
-        left: -50vw;
+        left: -40vw;
     }
 }
 
@@ -28,9 +28,9 @@
     /* border: 2px solid red; */
     width: 700px;
     position: relative;
-        top: -60px ;
+        top: -50px ;
         left: 2px ;
-        animation: move 4s linear infinite;
+        animation: move 20s linear infinite;
         /* overflow: hidden; */
 }
 
@@ -38,12 +38,12 @@
 
 @keyframes moveTwo {
     0% {
-        left: 130vw;
+        left: 100vw;
 
     }
 
     100% {
-        left: -100vw;
+        left: -40vw;
     }
 }
 
@@ -54,8 +54,67 @@
     width: 500px;
     height: 350px;
     position: relative;
-        top: -70px ;
+        top: -60px ;
         left: 2px ;
-        animation: moveTwo 9s linear infinite;
+        animation: moveTwo 25s linear infinite;
         /* overflow: hidden; */
 }
+
+
+/* Crocodile --------- */
+
+@keyframes crocodile {
+    0% {
+        left: -10vw;
+
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+
+
+.crocoLunch{
+    background: url(croLunch.gif);
+    z-index: 1;
+    background-repeat: no-repeat;
+    height: 190px;
+    position: relative;
+    top: -130px;
+    width: 300px;
+    animation: crocodile 9s linear infinite;
+
+}
+
+@keyframes crocodileLunch {
+    0% {
+        left: 100vw;
+
+    }
+
+    100% {
+        left: -40vw;
+    }
+}
+
+
+.crocoLunchRotate{
+    background: url(croLunch_rotate.gif);
+    z-index: 2;
+    /* border: 2px solid red; */
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 300px ;
+    position: relative;
+    top: -80px;
+    left: 2px;
+    animation: crocodileLunch 9s linear infinite;
+}
+
+
+
+
+
+
