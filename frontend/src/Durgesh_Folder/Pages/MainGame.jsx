@@ -9,6 +9,7 @@ import { RxSpeakerLoud, RxSpeakerOff } from "react-icons/rx";
 import { StackBox } from "../Components/StackBox";
 // import styled, { keyframes } from 'styled-components';
 import Duck from "./duck.png";
+import Quiz from "../../Components/Quiz";
 
 const MainGame = () => {
   const [value, setValue] = useState(false);
@@ -115,11 +116,14 @@ const MainGame = () => {
         {/*  User-1 ---- */}
         <Box
           position="absolute"
-          bottom="110px"
+          bottom="160px"
           left="40px"
-          border="2px  black"
+          border="2px   black"
           zIndex="4"
+          // height="49%"
           display="flex"
+          flexDirection="column-reverse"
+          
         >
           {/* Duck drown in water --------- */}
           {increaseCount == 0 && <Box className="drownDuck"> </Box>}
@@ -128,13 +132,14 @@ const MainGame = () => {
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {i === increaseCount - 1 && (
+                  {i === increaseCount-1  && (
                     <Img
                       src={Duck}
                       position="absolute"
-                      bottom="36px"
+                     
                       right="3px"
                       width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
@@ -149,10 +154,17 @@ const MainGame = () => {
               );
             })}
         </Box>
+   
+   {/*  Quiz is here in center */}
+   {/* <Box  position="absolute" top="00px" left="40px"   zIndex="4">
+     hello
+        <Quiz />
+     </Box> */}
 
         {/* user -2 ------ */}
+        {/* Duck drown in water --------- */}
 
-        <Box
+        {/* <Box
           position="absolute"
           top="200px"
           left="40px"
@@ -160,7 +172,6 @@ const MainGame = () => {
           zIndex="4"
           display="flex"
         >
-          {/* Duck drown in water --------- */}
           {increaseCount == 0 && <Box className="drownDuckSecond"> </Box>}
           {Array(increaseCount)
             .fill("")
@@ -187,7 +198,7 @@ const MainGame = () => {
                 </div>
               );
             })}
-        </Box>
+        </Box> */}
 
         <Button
           position="absolute"
