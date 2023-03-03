@@ -108,7 +108,7 @@
     height: 190px;
     width: 300px ;
     position: relative;
-    top: -20px;
+    top: -5vh ;
     left: 2px;
     animation: crocodileLunch 9s linear infinite;
 }
@@ -130,11 +130,14 @@
 
 .drownDuck{
     background: url(duckDrown.gif);
-    position: absolute;
-    /* z-index: 3; */
-    top: 40px;
-    left: 20px ;
-   
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    /* z-index: 1; */
+    top: 10vh;
+    left: 2px ;
+   height: 100px;
+   width: 200px;
     /* animation: dieFirst 2s ease-in;  */
 }
 

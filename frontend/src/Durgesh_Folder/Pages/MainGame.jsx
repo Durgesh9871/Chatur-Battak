@@ -92,8 +92,8 @@ const MainGame = () => {
       {/*  Stack game of student-----------------------  */}
        
        <Box position="absolute" bottom="110px" left="40px"  border="2px  black"  zIndex="4" display="flex">
-                    
-     {increaseCount == 0 && <Box className='drownDuck'> hello</Box>}
+                    {/* Duck drown in water --------- */}
+     {increaseCount == 0 && <Box className='drownDuck'> </Box>}
           {
             Array(increaseCount).fill('').map((_,i)=>{
               return (
