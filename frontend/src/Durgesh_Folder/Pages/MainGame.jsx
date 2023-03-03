@@ -6,6 +6,7 @@ import croco from "./Croco.png"
 import myAudioFile from './audio.mp3';
 import beach from "./beach.mp3"
 import {RxSpeakerLoud ,RxSpeakerOff } from "react-icons/rx"
+import { StackBox } from '../Components/StackBox'
 
 
 
@@ -69,7 +70,12 @@ const MainGame = () => {
 
         </Box>
 
+      
+      {/*  Stack game of student-----------------------  */}
        
+       <Box position="absolute" bottom="130px" left="40px" border="2px solid black" height="400px">
+        <StackBox count={1} />
+       </Box>
       
 
          
