@@ -59,3 +59,30 @@
         animation: moveTwo 9s linear infinite;
         /* overflow: hidden; */
 }
+
+
+/* Crocodile --------- */
+
+@keyframes crocodile {
+    0% {
+        left: 130vw;
+
+    }
+
+    100% {
+        left: -100vw;
+    }
+}
+
+
+.croco{
+    
+    /* border: 2px solid green; */
+    width: 500px;
+    height: 350px;
+    position: relative;
+        top: -20px ;
+        left: 2px ;
+        animation: crocodile 9s linear infinite;
+        /* overflow: hidden; */
+}
