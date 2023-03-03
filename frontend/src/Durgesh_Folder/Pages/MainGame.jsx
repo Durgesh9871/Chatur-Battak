@@ -54,6 +54,12 @@ const handleGameOver = ()=>{
   },3000)
 }
 
+useEffect(()=>{
+  if(increaseCount == 0){
+    handleGameOver()
+  }
+},[increaseCount])
+
 
 
   const volumeButtonStyle={
