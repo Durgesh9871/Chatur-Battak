@@ -56,11 +56,19 @@ const MainGame = () => {
   }
 
   return (
-    <Box className='mainGameBox' overflow="hidden" >
+    <Box className='mainGameBox'  >
          
         {/*  Water is here ------------- */}
-        
-        <Box className='waterMain'>
+        <Box id='firstPlayerWinner'>
+          
+          {/* Box for crocodile ------- */}
+          <Box></Box>
+          <Box></Box>
+        </Box>
+         
+
+         {/*  Game Start from here ------------------------ */}
+        <Box className='waterMain' display="none">
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />

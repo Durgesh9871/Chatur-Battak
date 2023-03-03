@@ -141,3 +141,13 @@
     /* animation: dieFirst 2s ease-in;  */
 }
 
+
+
+/*  After game over logic----------------- */
+
+#firstPlayerWinner{
+    background-color: red;
+    background-image: url(water_Image.gif);
+    background-size: cover;
+    height: 100vh;
+}
