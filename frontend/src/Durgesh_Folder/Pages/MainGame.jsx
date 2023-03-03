@@ -13,7 +13,7 @@ const MainGame = () => {
     <Box className='mainGameBox' overflow="hidden" >
         {/*  Water is here ------------- */}
        <Box className='waterMain' > 
-         <Box className='cro'>
+         <Box className='sky'>
             <img src={sky} alt="" />
          </Box>
         </Box>
