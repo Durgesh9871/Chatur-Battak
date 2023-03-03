@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connection=require("./config/db")
+const {userrouter}=require("./Routes/user.route");
+const { middleware } = require("./Middlewere/middleware");
 
 app.use(
   cors({
@@ -11,10 +13,19 @@ app.use(
 );
 app.use(express.json());
 
-
 app.get("/", (req, res) => {
   res.send("Welcome to the Game");
 });
+ app.use(middleware);
+app.use("/user",userrouter)
+
+
+
+
+
+
+
+
 
 app.listen(process.env.port, async () => {
   try {
