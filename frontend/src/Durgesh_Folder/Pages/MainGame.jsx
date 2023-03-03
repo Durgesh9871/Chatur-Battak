@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import "./mainGame.css"
 import sky from "./Sky_cloud.png"
 import croco from "./Croco.png"
+// import croLunch from "./croLunch.gif"
 
 
 
@@ -14,20 +15,25 @@ const MainGame = () => {
     <Box className='mainGameBox' overflow="hidden" >
         {/*  Water is here ------------- */}
         <Box className='waterMain'>
-       <Box  display="flex" justifyContent="space-around" > 
+       <Box  display="flex" justifyContent="space-around"  > 
          <Box className='sky'>
-            <Img src={sky} alt="sky1" height="300px" />
+            <Img src={sky} alt="sky1" height="250px" />
          </Box>
          <Box className='sky2'>
-            <Img src={sky} alt="sky2" />
+            <Img src={sky} alt="sky2" height="300px" />
          </Box>
          
         </Box>
 
          {/* Croco */}
-         <Box className='croco'>
-           <Img src={croco}  alt="cro"  /> 
+         <Box display="flex" >
+
+        <Box className='crocoLunch'> </Box>
+        <Box className='crocoLunchRotate'></Box>
+
         </Box>
+
+         
 
         
 
