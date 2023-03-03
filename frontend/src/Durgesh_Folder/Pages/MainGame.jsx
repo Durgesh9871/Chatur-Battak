@@ -206,22 +206,8 @@ const MainGame = () => {
           sub
         </Button>
       </Box>
-      <Button
-        position="absolute"
-        onClick={handleCount}
-        top="100px"
-        left="240px"
-      >
-        plus
-      </Button>
-      <Button
-        position="absolute"
-        onClick={handleCountMi}
-        top="60px"
-        left="240px"
-      >
-        sub
-      </Button>
+      
+      
     </Box>
   );
 };
