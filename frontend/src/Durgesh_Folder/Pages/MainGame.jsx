@@ -246,6 +246,7 @@ const MainGame = () => {
         </Box>
 
 
+
         <Button
           position="absolute"
           onClick={handleCount}
