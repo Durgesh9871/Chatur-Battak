@@ -65,12 +65,12 @@
 
 @keyframes crocodile {
     0% {
-        left: 130vw;
+        left: 100vw;
 
     }
 
     100% {
-        left: -100vw;
+        left: -40vw;
     }
 }
 
@@ -81,7 +81,7 @@
     width: 500px;
     height: 350px;
     position: relative;
-        top: -20px ;
+        top: 0px ;
         left: 2px ;
         animation: crocodile 9s linear infinite;
         /* overflow: hidden; */
