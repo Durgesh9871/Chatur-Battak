@@ -17,6 +17,7 @@ const MainGame = () => {
     const [value , setValue] = useState(false)
     const [increaseCount , setIncreaseCount] = useState(3)
     const [showAnimation, setShowAnimation] = useState(true);
+    const [game ,setGame] = useState(false)
 
     const audioRef = useRef(null);
     const beachRef = useRef(null)
@@ -47,7 +48,11 @@ const MainGame = () => {
 }
 
 //  Game over 
-
+const handleGameOver = ()=>{
+  setTimeout(()=>{
+    setGame(true)
+  },3000)
+}
 
 
 
@@ -59,7 +64,7 @@ const MainGame = () => {
     <Box className='mainGameBox'  >
          
         {/*  Game Stop 1st player is here ------------- */}
-        <Box id='playerWinner' overflow="hidden" display="none">
+        <Box id='playerWinner' overflow="hidden" display={game ? "block" :"none"}>
           
           {/* Box for crocodile ------- */}
           <Box display="flex" justifyContent="space-around">
@@ -70,7 +75,7 @@ const MainGame = () => {
          
 
          {/*  Game Start from here ------------------------ */}
-        <Box className='waterMain' overflow="hidden" display="block">
+        <Box className='waterMain' overflow="hidden" display={game ? "none" :"block"} >
             {/* Audio */}
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
