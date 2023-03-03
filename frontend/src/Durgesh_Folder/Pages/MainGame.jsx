@@ -1,3 +1,4 @@
+
 import { Box, Button, Img } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react'
 import "./mainGame.css"
@@ -24,22 +25,21 @@ const MainGame = () => {
     const beachRef = useRef(null)
 
 
+  const audioRef = useRef(null);
+  const beachRef = useRef(null);
+
   const handlePlayClick = () => {
     audioRef.current.play();
     beachRef.current.play();
-    setValue(true)
+    setValue(true);
   };
 
   const handlePauseClick = () => {
     audioRef.current.pause();
     beachRef.current.pause();
-    setValue(false)
+    setValue(false);
   };
-    
 
-
- const handleCount = ()=>{
-  setIncreaseCount((prev)=>prev+1)
 
  }
  
@@ -63,6 +63,10 @@ useEffect(()=>{
 
 
 
+    setIncreaseCount((prev) => prev - 1);
+  };
+
+
   const volumeButtonStyle={
     border:"2px solid #ffff" , fontSize:"45px" , borderRadius:"100%" ,padding:"8px" , cursor:"pointer" ,backgroundColor:"black",color:"#ffff"
   }
@@ -75,32 +79,36 @@ useEffect(()=>{
           
           {/* Box for crocodile ------- */}
           <Box display="flex" justifyContent="space-around">
+
           <Img src={sky} alt="sky1" height="200px" />
           <Img src={sky} alt="sky2" height="200px" />
-          </Box>
         </Box>
-         
+      </Box>
+
 
          {/*  Game Start from here ------------------------ */}
         <Box className='waterMain' overflow="hidden" display={"block"} >
             {/* Audio */}
+
         <audio src={myAudioFile} loop ref={audioRef} />
         <audio src={beach} loop ref={beachRef} />
-      {/* <button onClick={handlePlayClick}>Play</button>
+        {/* <button onClick={handlePlayClick}>Play</button>
       <button onClick={handlePauseClick}>Pause</button> */}
+
 
       <Box zIndex="10" position="absolute"  right="20px" top="20px">{value ?  <RxSpeakerLoud onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
         
 
-       <Box  display="flex"   > 
-         <Box className='sky'>
+
+        <Box display="flex">
+          <Box className="sky">
             <Img src={sky} alt="sky1" height="200px" />
-         </Box>
-         <Box className='sky2'>
+          </Box>
+          <Box className="sky2">
             <Img src={sky} alt="sky2" height="240px" />
-         </Box>
-         
+          </Box>
         </Box>
+
 
          {/* Croco */}
          <Box  >
@@ -161,12 +169,28 @@ useEffect(()=>{
 
         
 
-        </Box>
-       
-    </Box>
-  )
-}
 
+        </Box>
+        <Button
+          position="absolute"
+          onClick={handleCount}
+          top="100px"
+          left="240px"
+        >
+          plus
+        </Button>
+        <Button
+          position="absolute"
+          onClick={handleCountMi}
+          top="60px"
+          left="240px"
+        >
+          sub
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 // const stackDecrease = keyframes`
 //   from {
@@ -183,8 +207,4 @@ useEffect(()=>{
 //   transform: ${({ show }) => show ? 'translateY(0)' : 'translateY(-100%)'};
 // `;
 
-
-
-
-
-export  {MainGame}
+export { MainGame };
