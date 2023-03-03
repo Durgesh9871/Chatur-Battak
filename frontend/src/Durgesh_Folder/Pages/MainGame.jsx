@@ -30,9 +30,10 @@ const MainGame = () => {
   };
     
  const handleCount = ()=>{
-  
+  setIncreaseCount((prev)=>prev+1)
+
  }
-  
+ console.log(increaseCount)
  
 
 
