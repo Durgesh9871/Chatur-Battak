@@ -28,6 +28,7 @@ const MainGame = () => {
     setValue(false)
   };
     
+  let loopLength = 5
   
  
 
@@ -74,7 +75,14 @@ const MainGame = () => {
       {/*  Stack game of student-----------------------  */}
        
        <Box position="absolute" bottom="130px" left="40px" border="2px solid black" height="400px">
-        <StackBox count={1} />
+          {
+            Array(5).fill('').map((_,i)=>{
+              return (
+
+                <StackBox count={1} />
+            )
+            })
+          }
        </Box>
       
 
