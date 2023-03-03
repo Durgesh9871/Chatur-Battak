@@ -2,7 +2,6 @@ import { Box, Button, Img } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
-import croco from "./Croco.png";
 import myAudioFile from "./audio.mp3";
 import beach from "./beach.mp3";
 import { RxSpeakerLoud, RxSpeakerOff } from "react-icons/rx";
@@ -11,6 +10,7 @@ import { StackBox } from "../Components/StackBox";
 import Duck from "./duck.png";
 import goldDuck from "./goldDuck.png"
 import Quiz from "../../Components/Quiz";
+import croLunch from "./croLunch.gif"
 
 const MainGame = () => {
   const [value, setValue] = useState(false);
@@ -133,7 +133,7 @@ const MainGame = () => {
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {i === increaseCount-1  && (
+                  {((i === increaseCount-1  && i < 4)  && (
                     <Img
                       src={Duck}
                       position="absolute"
@@ -144,7 +144,27 @@ const MainGame = () => {
                       border="2px  red"
                       alt="Duck"
                     />
-                  )}
+                  )) || (i === increaseCount-1  && i >= 5)  && (
+                    <Img
+                      src={goldDuck}
+                      position="absolute"
+                     
+                      right="3px"
+                      width="6vw"
+                      bottom={increaseCount == 1 && "36px"}
+                      border="2px  red"
+                      alt="Duck"
+                    />)  || (i === increaseCount-1  && i == 4)  && (
+                      <Img
+                        src={croLunch}
+                        position="absolute"
+                       
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCount == 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />)    }
                   <StackBox
                     count={i + 1}
                     color={i % 2 == 0 ? "white" : "black"}
