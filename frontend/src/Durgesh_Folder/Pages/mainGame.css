@@ -133,7 +133,7 @@
     position: relative;
     /* z-index: 1; */
     top: 10vh;
-    left: -2px ;
+    left: 0px ;
    height: 100px;
    width: 200px;
     /* animation: dieFirst 2s ease-in;  */
