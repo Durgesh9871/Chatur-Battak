@@ -80,7 +80,6 @@ const MainGame = () => {
       <Box zIndex="10" position="absolute"  right="15px" top="10px">{value ?  <RxSpeakerLoud onClick={handlePauseClick} style={volumeButtonStyle} /> : <RxSpeakerOff onClick={handlePlayClick} style={volumeButtonStyle} /> } </Box>
         
 
-
        <Box  display="flex"   > 
          <Box className='sky'>
             <Img src={sky} alt="sky1" height="200px" />
