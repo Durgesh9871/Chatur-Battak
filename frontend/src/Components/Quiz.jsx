@@ -8,77 +8,7 @@ import {
   CircularProgress,
   CircularProgressLabel,
 } from "@chakra-ui/react";
-const Quiz = () => {
-  const questions = [
-    {
-      question: "What is the capital of France?",
-      options: ["Paris", "Madrid", "Berlin", "Rome"],
-      answer: "Paris",
-    },
-    {
-      question: "What is the tallest mountain in the world?",
-      options: [
-        "Mount Kilimanjaro",
-        "Mount Everest",
-        "Mount Denali",
-        "Mount Aconcagua",
-      ],
-      answer: "Mount Everest",
-    },
-    {
-      question: "Who invented the telephone?",
-      options: [
-        "Thomas Edison",
-        "Alexander Graham Bell",
-        "Nikola Tesla",
-        "Guglielmo Marconi",
-      ],
-      answer: "Alexander Graham Bell",
-    },
-    {
-      question: "Which planet is known as the Red Planet?",
-      options: ["Jupiter", "Venus", "Mars", "Saturn"],
-      answer: "Mars",
-    },
-    {
-      question: "Who painted the Mona Lisa?",
-      options: [
-        "Vincent van Gogh",
-        "Leonardo da Vinci",
-        "Pablo Picasso",
-        "Rembrandt van Rijn",
-      ],
-      answer: "Leonardo da Vinci",
-    },
-  ];
-  const [secondsRemaining, setSecondsRemaining] = useState(10);
-  const [count, setCount] = useState(0);
-  const [msg, setMsg] = useState("");
-  const [flag, setFlag] = useState(true);
-  useEffect(() => {
-    if (count < 4) {
-      if (secondsRemaining > 0) {
-        setTimeout(() => {
-          setSecondsRemaining(secondsRemaining - 1);
-        }, 1000);
-      } else {
-        setSecondsRemaining(10);
-        setCount(count + 1);
-        setFlag(true);
-        setMsg("");
-      }
-    } else {
-      setCount(0);
-    }
-  }, [secondsRemaining, count]);
-  const handleAnswer = (ans) => {
-    if (questions[count].answer === ans) {
-      setMsg("Correct answer. Good job.");
-    } else {
-      setMsg(`Incorrect answer.Correct answer is ${questions[count].answer}`);
-    }
-    setFlag(false);
-  };
+const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
   return (
     <Box
       p="5"

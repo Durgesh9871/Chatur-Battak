@@ -8,17 +8,74 @@ import { RxSpeakerLoud, RxSpeakerOff } from "react-icons/rx";
 import { StackBox } from "../Components/StackBox";
 // import styled, { keyframes } from 'styled-components';
 import Duck from "./duck.png";
-import goldDuck from "./goldDuck.png"
+import goldDuck from "./goldDuck.png";
 import Quiz from "../../Components/Quiz";
-import growDuck from "./growDuck.gif"
+import growDuck from "./growDuck.gif";
+import axios from "axios";
 
 const MainGame = () => {
+  
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Paris", "Madrid", "Berlin", "Rome"],
+      answer: "Paris",
+    },
+    {
+      question: "What is the tallest mountain in the world?",
+      options: [
+        "Mount Kilimanjaro",
+        "Mount Everest",
+        "Mount Denali",
+        "Mount Aconcagua",
+      ],
+      answer: "Mount Everest",
+    },
+    {
+      question: "Who invented the telephone?",
+      options: [
+        "Thomas Edison",
+        "Alexander Graham Bell",
+        "Nikola Tesla",
+        "Guglielmo Marconi",
+      ],
+      answer: "Alexander Graham Bell",
+    },
+    {
+      question: "Which planet is known as the Red Planet?",
+      options: ["Jupiter", "Venus", "Mars", "Saturn"],
+      answer: "Mars",
+    },
+    {
+      question: "Who painted the Mona Lisa?",
+      options: [
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Rembrandt van Rijn",
+      ],
+      answer: "Leonardo da Vinci",
+    },
+    {
+      question: "Javascript is an _______ language?",
+      options: [
+        "Object-Oriented",
+        "Object-Based",
+        "Procedural",
+        "None of the above",
+      ],
+      answer: "Object-Oriented",
+    },
+  ];
   const [value, setValue] = useState(false);
   const [increaseCount, setIncreaseCount] = useState(3);
   const [increaseCountUserTwo, setIncreaseCountUserTwo] = useState(3);
   const [showAnimation, setShowAnimation] = useState(true);
   const [game, setGame] = useState(false);
-
+  const [msg, setMsg] = useState("");
+  const [secondsRemaining, setSecondsRemaining] = useState(10);
+  const [count, setCount] = useState(0);
+  const [flag, setFlag] = useState(true);
   const audioRef = useRef(null);
   const beachRef = useRef(null);
 
@@ -34,14 +91,14 @@ const MainGame = () => {
     setValue(false);
   };
 
-  const handleCount = () => {
-    setIncreaseCount((prev) => prev + 1);
-  };
+  // const handleCount = () => {
+  //   setIncreaseCount((prev) => prev + 1);
+  // };
 
-  const handleCountMi = () => {
-    // let but = document.querySelector(".one0")
-    setIncreaseCount((prev) => prev - 1);
-  };
+  // const handleCountMi = () => {
+  //   // let but = document.querySelector(".one0")
+  //   setIncreaseCount((prev) => prev - 1);
+  // };
 
   //  Game over
   const handleGameOver = () => {
@@ -50,11 +107,63 @@ const MainGame = () => {
     }, 3000);
   };
 
-  useEffect(() => {
-    if (increaseCount == 0) {
-      handleGameOver();
+  const handleAnswer = (ans) => {
+    console.log(ans)
+    if (questions[count].answer === ans) {
+      const payload = {
+        gameId: "m^8Bq6",
+        userId: "fw20_0845_6675",
+      };
+      axios
+        .patch(`http://localhost:8080/games/rightAnswer`, payload)
+        .then((res) => {
+          setMsg("Correct answer. Good job.");
+        })
+        .catch((err) => console.log("err", err));
+    } else {
+      const payload = {
+        gameId: "m^8Bq6",
+        userId: "fw20_0845_6675",
+      };
+      axios
+        .patch(`http://localhost:8080/games/wrongAnswer`, payload)
+        .then((res) => {
+          setMsg(`Incorrect answer.Correct answer is ${questions[count].answer}`);
+        })
+        .catch((err) => console.log("err", err));
     }
-  }, [increaseCount]);
+    setFlag(false);
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/games?id=m^8Bq6`)
+      .then((res) => res.json())
+      .then((res) => res.data[0])
+      .then((res) => {
+        console.log(increaseCount);
+        if (increaseCount === 0) {
+          handleGameOver();
+        } else {
+          if (count < 5) {
+            if (secondsRemaining > 0) {
+              setTimeout(() => {
+                setSecondsRemaining(secondsRemaining - 1);
+              }, 1000);
+            } else {
+              setSecondsRemaining(10);
+              setCount(count + 1);
+              setFlag(true);
+              setMsg("");
+              setIncreaseCount(res.playerFirstScore / 10);
+              setIncreaseCountUserTwo(res.playerSecondScore / 10);
+            }
+          } else {
+            setCount(0);
+          }
+        }
+      })
+      .catch((err) => console.log("err", err));
+  }, [count, increaseCount, secondsRemaining, flag, msg]);
 
   const volumeButtonStyle = {
     border: "2px solid #ffff",
@@ -124,47 +233,47 @@ const MainGame = () => {
           // height="49%"
           display="flex"
           flexDirection="column-reverse"
-          
         >
           {/* Duck drown in water --------- */}
-          {increaseCount == 0 && <Box className="drownDuck"> </Box>}
+          {increaseCount === 0 && <Box className="drownDuck"> </Box>}
           {Array(increaseCount)
             .fill("")
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {((i === increaseCount-1  && i < 4)  && (
+                  {(i === increaseCount - 1 && i < 4 && (
                     <Img
                       src={Duck}
                       position="absolute"
-                     
                       right="3px"
                       width="6vw"
-                      bottom={increaseCount == 1 && "36px"}
+                      bottom={increaseCount === 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
-                  )) || (i === increaseCount-1  && i >= 5)  && (
-                    <Img
-                      src={goldDuck}
-                      position="absolute"
-                     
-                      right="3px"
-                      width="6vw"
-                      bottom={increaseCount == 1 && "36px"}
-                      border="2px  red"
-                      alt="Duck"
-                    />)  || (i === increaseCount-1  && i == 4)  && (
+                  )) ||
+                    (i === increaseCount - 1 && i >= 5 && (
+                      <Img
+                        src={goldDuck}
+                        position="absolute"
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCount === 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />
+                    )) ||
+                    (i === increaseCount - 1 && i === 4 && (
                       <Img
                         src={growDuck}
                         position="absolute"
-                       
                         right="3px"
                         width="6vw"
-                        bottom={increaseCount == 1 && "36px"}
+                        bottom={increaseCount === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
-                      />)    }
+                      />
+                    ))}
                   <StackBox
                     count={i + 1}
                     color={i % 2 == 0 ? "#deb093" : "black"}
@@ -175,13 +284,19 @@ const MainGame = () => {
               );
             })}
         </Box>
-   
-   {/*  Quiz is here in center */}
 
-   <Box  position="absolute" top="100px" left="40px"   zIndex="4">
-    
-        {/* <Quiz /> */}
-     </Box>
+        {/*  Quiz is here in center */}
+
+        <Box position="absolute" top="100px" left="40px" zIndex="4">
+          <Quiz
+            msg={msg}
+            handleAnswer={handleAnswer}
+            questions={questions}
+            secondsRemaining={secondsRemaining}
+            count={count}
+            flag={flag}
+          />
+        </Box>
 
         {/* user -2 ------ */}
         {/* Duck drown in water --------- */}
@@ -194,78 +309,74 @@ const MainGame = () => {
           zIndex="4"
           display="flex"
           flexDirection="column-reverse"
-          
         >
-          {increaseCount == 0 && <Box className="drownDuckSecond"   > </Box>}
-          {Array(increaseCount)
+          {increaseCountUserTwo === 0 && <Box className="drownDuckSecond"> </Box>}
+          {Array(increaseCountUserTwo)
             .fill("")
             .map((_, i) => {
               return (
                 <div key={i}>
-                  {((i === increaseCount-1  && i < 4)  && (
+                  {(i === increaseCountUserTwo - 1 && i < 4 && (
                     <Img
                       src={Duck}
                       position="absolute"
-                     
                       right="3px"
                       width="6vw"
-                      bottom={increaseCount == 1 && "36px"}
+                      bottom={increaseCountUserTwo === 1 && "36px"}
                       border="2px  red"
                       alt="Duck"
                     />
-                  )) || (i === increaseCount-1  && i >= 5)  && (
-                    <Img
-                      src={goldDuck}
-                      position="absolute"
-                     
-                      right="3px"
-                      width="6vw"
-                      bottom={increaseCount == 1 && "36px"}
-                      border="2px  red"
-                      alt="Duck"
-                    />)  || (i === increaseCount-1  && i == 4)  && (
+                  )) ||
+                    (i === increaseCountUserTwo - 1 && i >= 5 && (
+                      <Img
+                        src={goldDuck}
+                        position="absolute"
+                        right="3px"
+                        width="6vw"
+                        bottom={increaseCountUserTwo === 1 && "36px"}
+                        border="2px  red"
+                        alt="Duck"
+                      />
+                    )) ||
+                    (i === increaseCountUserTwo - 1 && i === 4 && (
                       <Img
                         src={growDuck}
                         position="absolute"
-                       
                         right="3px"
                         width="6vw"
-                        bottom={increaseCount == 1 && "36px"}
+                        bottom={increaseCountUserTwo === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
-                      />)    }
+                      />
+                    ))}
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "#deb093" : "black"}
-                    border={i % 2 == 0 ? "black" : "#ffff"}
-                    text={i % 2 == 0 ? "black" : "#ffff"}
+                    color={i % 2 === 0 ? "#deb093" : "black"}
+                    border={i % 2 === 0 ? "black" : "#ffff"}
+                    text={i % 2 === 0 ? "black" : "#ffff"}
                   />
                 </div>
               );
             })}
         </Box>
 
-
-
-        <Button
+        {/* <Button
           position="absolute"
           onClick={handleCount}
           top="10px"
           left="240px"
         >
           plus
-        </Button>
-        <Button
+        </Button> */}
+        {/* <Button
           position="absolute"
           onClick={handleCountMi}
           top="50px"
           left="240px"
         >
           sub
-        </Button>
+        </Button> */}
       </Box>
-      
-      
     </Box>
   );
 };

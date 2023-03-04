@@ -7,9 +7,15 @@ const { GameModel } = require("../Models/Games.Model");
 const shortid = require("shortid");
 
 GameRoute.get("/", async (req, res) => {
+  const {id}=req.query
   try {
+   if(id){
+    const data = await GameModel.find({gameId:id});
+    res.status(401).json({ data: data });
+   }else{
     const data = await GameModel.find();
     res.status(401).json({ data: data });
+   }
   } catch (err) {
     console.log(err);
     res.status(401).json({
