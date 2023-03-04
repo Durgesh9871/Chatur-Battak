@@ -7,9 +7,11 @@ const { GameModel } = require("../Models/Games.Model");
 const shortid = require("shortid");
 
 GameRoute.get("/", async (req, res) => {
+  let gameId=req.query.q
+  console.log(req.headers.authorization)
   try {
-    const data = await GameModel.find();
-    res.status(401).json({ data: data });
+    const data = await GameModel.findOne({gameId});
+    res.status(201).json({ data: data });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -26,7 +28,7 @@ GameRoute.post("/newGame", async (req, res) => {
   //   }
   const generateUniqueID = () => {
     const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=0123456789";
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890123456789";
     let result = "";
     for (let i = 0; i < 6; i++) {
       result += characters.charAt(
@@ -44,7 +46,7 @@ GameRoute.post("/newGame", async (req, res) => {
       playerFirstScore: 30,
     });
     await Game.save();
-    res.status(201).json({ message: `New Game Generated of game id ${id}` });
+    res.status(201).json({ message: `New Game Generated of game id ${id}`,id });
   } catch (err) {
     console.log(err);
     res.status(401).json({

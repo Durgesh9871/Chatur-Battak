@@ -43,7 +43,7 @@ export const Login = () => {
         localStorage.setItem("token", res.token);
         console.log(res);
         if (res.token) {
-          login(res.token, res.name, res.email);
+          login(res.token, res.name, res.email,res.id);
           toast({
             title: "Login Success.",
             description: "You have successfully logged in",
@@ -77,7 +77,7 @@ export const Login = () => {
         <Stack spacing="8">
           <Stack spacing="6">
             <Stack spacing={{ base: "2", md: "3", lg: "4" }} textAlign="center">
-              <Heading size={{ base: "xs", md: "sm", lg: "lg" }}>
+              <Heading size={{ base: "xs", md: "sm", lg: "lg" }} fontFamily="Press2p">
                 Log In to your account
               </Heading>
               <HStack spacing="1" justify="center">
@@ -124,6 +124,7 @@ export const Login = () => {
                     />
                     <InputRightElement h={"full"}>
                       <Button
+                  
                         variant={"ghost"}
                         onClick={() =>
                           setShowPassword((showPassword) => !showPassword)
@@ -148,7 +149,8 @@ export const Login = () => {
                 </Button>
               </HStack>
               <Stack spacing="6">
-                <Button  onClick={() => HandleLogin()} bg="blue.300" variant="primary">
+                <Button  onClick={() => HandleLogin()}  variant="primary"     className="bbuttons"
+                      bgColor="yellow" alignSelf="center" _hover={{bgColor:"blue"}}>
                   Sign in
                 </Button>
               </Stack>

@@ -3,3 +3,23 @@
     background-size: cover;
     background-position: center;
   }
+@font-face {
+  font-family: "Press2p";
+  src: url("../Akshay_Folder/pages/Assets/PressStart2P-Regular.ttf");
+}
+*{
+  font-family: "Press2p";
+}
+.bbuttons{
+  color: red;
+  /* background-color:black; */
+  font-family: "Press2p";
+  padding: 10px 0 10px 10px ;
+  text-shadow: -1px -1px black, 1px 1px white;
+  -webkit-border-radius: 7px;
+-moz-border-radius: 7px;
+-o-border-radius: 7px;
+border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  cursor: pointer;
+}

@@ -86,7 +86,7 @@ export const Signup = () => {
         <Stack spacing="8">
           <Stack spacing="6">
             <Stack spacing={{ base: "2", md: "3", lg: "4" }} textAlign="center">
-              <Heading size={{ base: "xs", md: "sm", lg: "lg" }}>
+              <Heading size={{ base: "xs", md: "sm", lg: "lg" }} fontFamily="Press2p">
                 Sign up to your account
               </Heading>
               <HStack spacing="1" justify="center">
@@ -169,8 +169,10 @@ export const Signup = () => {
               <Stack spacing="6">
                 <Button
                   onClick={() => HandleSubmit()}
-                  bg="blue.300"
                   variant="primary"
+                  className="bbuttons"
+                  bgColor="yellow" alignSelf="center" _hover={{bgColor:"blue"}}
+                  
                 >
                   Sign in
                 </Button>
