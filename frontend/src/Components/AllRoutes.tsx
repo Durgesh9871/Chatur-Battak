@@ -5,6 +5,7 @@ import JoinGame from "../Akshay_Folder/pages/JoinGame";
 import Lns from "../Akshay_Folder/pages/LnS";
 import NewGame from "../Akshay_Folder/pages/NewGame";
 import { DisplayData } from "../DisplayData";
+import { Over } from "../Durgesh_Folder/Pages/Over";
 import { Login } from "../Sumit_Folder/Login";
 import { Signup } from "../Sumit_Folder/Signup";
 import PrivateRoute from "./PrivateRoutes";
@@ -19,6 +20,7 @@ const AllRoutes = () => {
       <Route path="/newgame" element={<NewGame />}></Route>
       <Route path="/joingame" element={<JoinGame />}></Route>
       <Route path="/game" element={<DisplayData />} />
+      <Route path="/gameOver" element={<Over />} />
     </Routes>
   );
 };

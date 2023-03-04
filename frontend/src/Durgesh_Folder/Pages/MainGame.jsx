@@ -15,6 +15,7 @@ import axios from "axios";
 import { GameOver } from "../Components/GameOver";
 import { AiFillCaretDown } from "react-icons/ai";
 import { AuthContext } from "../../Components/Context/AuthContext";
+import { useNavigate } from "react-router";
 
 
 const MainGame = () => {
@@ -81,6 +82,7 @@ const MainGame = () => {
   const [flag, setFlag] = useState(true);
   const audioRef = useRef(null);
   const beachRef = useRef(null);
+  const navigate = useNavigate()
 
   const handlePlayClick = () => {
     audioRef.current.play();
@@ -106,7 +108,7 @@ const MainGame = () => {
   //  Game over
   const handleGameOver = () => {
     setTimeout(() => {
-      setGame(true);
+      navigate("/gameOver")
     }, 3000);
   };
 
@@ -181,14 +183,10 @@ const MainGame = () => {
   return (
     <Box className="mainGameBox">
       {/*  Game Stop 1st player is here ------------- */}
-      <Box id="playerWinner" overflow="hidden" display={game?"block":"none"}>
-        {/* Box for crocodile ------- */}
-    
-        <GameOver />
-      </Box>
+      
 
       {/*  Game Start from here ------------------------ */}
-      <Box className="waterMain" overflow="hidden" display={game?"none":"block"}>
+      <Box className="waterMain" overflow="hidden" display={"block"}>
         {/* Audio */}
 
         <audio src={myAudioFile} loop ref={audioRef} />
