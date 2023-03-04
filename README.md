@@ -1,7 +1,7 @@
 
 # Hackathon Project - Chatur Battak
 
-Our 24-hour hackathon project - a multiplayer game that combines trivia quiz challenges with a fun and engaging user interface!
+Our 36-hour hackathon project - a multiplayer game that combines trivia quiz challenges with a fun and engaging user interface!
 
 In this fast-paced game, players can join together in real-time to answer trivia questions and compete for the highest score. The questions cover a variety of topics, ranging from pop culture and entertainment to science and technology, ensuring there's something for everyone to enjoy.
 
