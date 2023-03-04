@@ -12,18 +12,20 @@ const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
   return (
     <Box
       p="5"
-      w="1000px"
-      mt="200px"
-      ml="200px"
+      w="900px"
+      mt="28.5%"
+      ml="30.5%"
       bg={"#918c27"}
+      border="2px  red"
       boxShadow="  0 0 0 10px #98ee52,
-  0 0 0 15px #53d480,
-  0 0 0 20px #55a466,
-  0 0 0 25px #6a8e4e,
-  0 0 0 30px #918c27;"
+  0 0 0 10px #53d480,
+  0 0 0 12px #55a466,
+  0 0 0 14px #6a8e4e,
+  0 0 0 16px #918c27;"
     >
+    
       <Flex>
-        <Box w="850px" m="auto" p="2">
+        <Box w="850px" m="auto" p="2" border="2px  pink">
           <Heading
             textAlign={"center"}
             size={"md"}
@@ -92,7 +94,7 @@ const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
         size={"sm"}
         fontFamily={"Press2p"}
         textShadow={"-1px -1px black, 1px 1px white"}
-        mb="5"
+        mb=""
       >
         {msg}
       </Heading>

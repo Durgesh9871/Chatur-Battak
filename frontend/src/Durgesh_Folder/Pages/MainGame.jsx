@@ -1,4 +1,4 @@
-import { Box, Button, Img } from "@chakra-ui/react";
+import { Box, Button, Img , Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
@@ -12,6 +12,9 @@ import goldDuck from "./goldDuck.png";
 import Quiz from "../../Components/Quiz";
 import growDuck from "./growDuck.gif";
 import axios from "axios";
+import { GameOver } from "../Components/GameOver";
+import { AiFillCaretDown } from "react-icons/ai";
+
 
 const MainGame = () => {
   
@@ -70,7 +73,6 @@ const MainGame = () => {
   const [value, setValue] = useState(false);
   const [increaseCount, setIncreaseCount] = useState(3);
   const [increaseCountUserTwo, setIncreaseCountUserTwo] = useState(3);
-  const [showAnimation, setShowAnimation] = useState(true);
   const [game, setGame] = useState(false);
   const [msg, setMsg] = useState("");
   const [secondsRemaining, setSecondsRemaining] = useState(10);
@@ -141,7 +143,7 @@ const MainGame = () => {
       .then((res) => res.data[0])
       .then((res) => {
         console.log(increaseCount);
-        if (increaseCount === 0) {
+        if (increaseCount === 0 || increaseCountUserTwo == 0 || count == 5) {
           handleGameOver();
         } else {
           if (count < 5) {
@@ -178,16 +180,14 @@ const MainGame = () => {
   return (
     <Box className="mainGameBox">
       {/*  Game Stop 1st player is here ------------- */}
-      <Box id="playerWinner" overflow="hidden" display={"none"}>
+      <Box id="playerWinner" overflow="hidden" display={game?"block":"none"}>
         {/* Box for crocodile ------- */}
-        <Box display="flex" justifyContent="space-around">
-          <Img src={sky} alt="sky1" height="200px" />
-          <Img src={sky} alt="sky2" height="200px" />
-        </Box>
+    
+        <GameOver />
       </Box>
 
       {/*  Game Start from here ------------------------ */}
-      <Box className="waterMain" overflow="hidden" display={"block"}>
+      <Box className="waterMain" overflow="hidden" display={game?"none":"block"}>
         {/* Audio */}
 
         <audio src={myAudioFile} loop ref={audioRef} />
@@ -242,6 +242,11 @@ const MainGame = () => {
               return (
                 <div key={i}>
                   {(i === increaseCount - 1 && i < 4 && (
+                    <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                     <Img
                       src={Duck}
                       position="absolute"
@@ -251,8 +256,15 @@ const MainGame = () => {
                       border="2px  red"
                       alt="Duck"
                     />
+                    </>
+                    
                   )) ||
                     (i === increaseCount - 1 && i >= 5 && (
+                      <>
+                      <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
@@ -262,8 +274,14 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     )) ||
                     (i === increaseCount - 1 && i === 4 && (
+                      <>
+                        <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
@@ -273,6 +291,7 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     ))}
                   <StackBox
                     count={i + 1}
@@ -317,6 +336,11 @@ const MainGame = () => {
               return (
                 <div key={i}>
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
+                    <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 2</Text>
+               <AiFillCaretDown style={{color:"white" }} />
+                </Box>
                     <Img
                       src={Duck}
                       position="absolute"
@@ -326,8 +350,14 @@ const MainGame = () => {
                       border="2px  red"
                       alt="Duck"
                     />
+                    </>
                   )) ||
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
+                      <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
@@ -337,8 +367,14 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     )) ||
                     (i === increaseCountUserTwo - 1 && i === 4 && (
+                      <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
@@ -348,6 +384,7 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     ))}
                   <StackBox
                     count={i + 1}
@@ -367,8 +404,8 @@ const MainGame = () => {
           left="240px"
         >
           plus
-        </Button> */}
-        {/* <Button
+        </Button>
+        <Button
           position="absolute"
           onClick={handleCountMi}
           top="50px"
