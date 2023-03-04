@@ -16,7 +16,7 @@ const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
       mt="250px"
       ml="280px"
       bg={"#918c27"}
-      border="2px solid red"
+      border="2px  red"
       boxShadow="  0 0 0 10px #98ee52,
   0 0 0 10px #53d480,
   0 0 0 12px #55a466,
@@ -94,7 +94,7 @@ const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
         size={"sm"}
         fontFamily={"Press2p"}
         textShadow={"-1px -1px black, 1px 1px white"}
-        mb="5"
+        mb=""
       >
         {msg}
       </Heading>
