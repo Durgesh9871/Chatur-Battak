@@ -12,6 +12,7 @@ import goldDuck from "./goldDuck.png";
 import Quiz from "../../Components/Quiz";
 import growDuck from "./growDuck.gif";
 import axios from "axios";
+import { GameOver } from "../Components/GameOver";
 
 const MainGame = () => {
   
@@ -70,7 +71,6 @@ const MainGame = () => {
   const [value, setValue] = useState(false);
   const [increaseCount, setIncreaseCount] = useState(3);
   const [increaseCountUserTwo, setIncreaseCountUserTwo] = useState(3);
-  const [showAnimation, setShowAnimation] = useState(true);
   const [game, setGame] = useState(false);
   const [msg, setMsg] = useState("");
   const [secondsRemaining, setSecondsRemaining] = useState(10);
@@ -178,16 +178,14 @@ const MainGame = () => {
   return (
     <Box className="mainGameBox">
       {/*  Game Stop 1st player is here ------------- */}
-      <Box id="playerWinner" overflow="hidden" display={"none"}>
+      <Box id="playerWinner" overflow="hidden" display={game?"block":"none"}>
         {/* Box for crocodile ------- */}
-        <Box display="flex" justifyContent="space-around">
-          <Img src={sky} alt="sky1" height="200px" />
-          <Img src={sky} alt="sky2" height="200px" />
-        </Box>
+    
+        <GameOver />
       </Box>
 
       {/*  Game Start from here ------------------------ */}
-      <Box className="waterMain" overflow="hidden" display={"block"}>
+      <Box className="waterMain" overflow="hidden" display={game?"none":"block"}>
         {/* Audio */}
 
         <audio src={myAudioFile} loop ref={audioRef} />

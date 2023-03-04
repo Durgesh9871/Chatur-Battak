@@ -15,14 +15,14 @@ const GameOver = () => {
     //    Function for get back in lobby 
      const navigate = useNavigate()
       useEffect(()=>{
-        if(seconds == 0){
-            navigate("/homepage")
-        }
+        // if(seconds == 0){
+        //     navigate("/homepage")
+        // }
       },[seconds])
 
 
   return (
-    <Box>
+    <Box mt="200px">
         <Box className={"ggamebox"} textAlign="left">
             <Box fontFamily="Press2p" textAlign="center" color="#ce0000" px="10px" ><Text>Game Over</Text></Box>
             <Box fontFamily="Press2p" textAlign="center" color="" mt="-12px" ><Text>`Back in lobby in {seconds} seconds </Text></Box>
