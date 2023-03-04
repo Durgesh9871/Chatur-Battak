@@ -1,6 +1,6 @@
 <h1 align="center">Chatur Battak</h1>
 
-# Hackathon Project - Chatur Battak
+# Hackathon Project 
 
 Our 36-hour hackathon project - a multiplayer game that combines trivia quiz challenges with a fun and engaging user interface!
 
