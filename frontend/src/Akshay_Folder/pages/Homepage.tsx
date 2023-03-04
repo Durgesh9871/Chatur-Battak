@@ -25,7 +25,7 @@ const Homepage = () => {
  const navigate=useNavigate()
   return (
     <Box className={"main"}>
-      <Heading className="head">The Game</Heading>
+      <Heading className="head">Chatur Battak</Heading>
         <Box className={"gamebox"}>
             <Button onClick={()=>{generate();setTimeout(()=>{navigate("/newgame")},1000)}} className="buttons" bgColor="yellow" _hover={{bgColor:"blue"}}>New Game</Button>
             <Button onClick={()=>navigate("/joingame")} className="buttons" bgColor="yellow" _hover={{bgColor:"blue"}}>Join Game</Button>

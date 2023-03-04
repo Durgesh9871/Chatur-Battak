@@ -38,7 +38,7 @@ const JoinGame = () => {
   }
   return (
     <Box className={"mmain"}>
-      <Heading className="head">The Game</Heading>
+      <Heading className="head">Chatur Battak</Heading>
         <Box fontSize={fontsize} className={"gamebox"} width={{base:"80%",sm:"60%",md:"40%"}}>
           <Stack fontFamily="Press2p" direction="row"alignItems="center" justifyContent="center"><Text>Game Code :</Text><Input width="50%" value={value} onChange={(e)=>setValue(e.target.value)}></Input></Stack>
           <Button className="bbuttons" bgColor="yellow" alignSelf="center" _hover={{bgColor:"blue"}} onClick={handleSubmit}> Join Game</Button>

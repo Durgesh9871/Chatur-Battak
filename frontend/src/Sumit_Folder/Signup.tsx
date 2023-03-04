@@ -175,7 +175,7 @@ export const Signup = () => {
                   bgColor="yellow" alignSelf="center" _hover={{bgColor:"blue"}}
                   
                 >
-                  Sign in
+                  Sign Up
                 </Button>
               </Stack>
             </Stack>

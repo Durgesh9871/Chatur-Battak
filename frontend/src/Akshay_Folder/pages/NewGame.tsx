@@ -49,7 +49,7 @@ const NewGame = () => {
   }, [flag,splayer]);
   return (
     <Box className={"mmain"}>
-      <Heading className="hhead">The Game</Heading>
+      <Heading className="hhead">Chatur Battak</Heading>
         <Box className={"ggamebox"} width={{base:"80%",sm:"60%",md:"40%"}}textAlign="left">
             <Box fontFamily="Press2p" textAlign="left" fontSize={fontsize} px="10px"><Text>GameId:{authState.gameId}</Text></Box>
             <Box fontFamily="Press2p" textAlign="left" fontSize={fontsize}  px="10px"><Text>Player 1:{fplayer} </Text></Box>
