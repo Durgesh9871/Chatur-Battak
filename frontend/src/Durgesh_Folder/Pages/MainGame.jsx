@@ -244,8 +244,8 @@ const MainGame = () => {
                   {(i === increaseCount - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center"  >
-                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                     <Img
                       src={Duck}
@@ -262,8 +262,8 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i >= 5 && (
                       <>
                       <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                       <Img
                         src={goldDuck}
@@ -279,8 +279,8 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i === 4 && (
                       <>
                         <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                       <Img
                         src={growDuck}
@@ -338,8 +338,8 @@ const MainGame = () => {
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 2</Text>
-               <AiFillCaretDown style={{color:"white" , marginLeft:"-22px" }} />
+                <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 2</Text>
+               <AiFillCaretDown style={{color:"white" , marginLeft:"" }} />
                 </Box>
                     <Img
                       src={Duck}
@@ -355,8 +355,8 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white",marginLeft:"-22px" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white",marginLeft:"" }} />
                     </Box>
                       <Img
                         src={goldDuck}
@@ -372,8 +372,8 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i === 4 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                       <Img
                         src={growDuck}
