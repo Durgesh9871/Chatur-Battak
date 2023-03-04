@@ -1,4 +1,4 @@
-import { Box, Button, Img } from "@chakra-ui/react";
+import { Box, Button, Img , Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
@@ -13,6 +13,8 @@ import Quiz from "../../Components/Quiz";
 import growDuck from "./growDuck.gif";
 import axios from "axios";
 import { GameOver } from "../Components/GameOver";
+import { AiFillCaretDown } from "react-icons/ai";
+
 
 const MainGame = () => {
   
@@ -240,6 +242,11 @@ const MainGame = () => {
               return (
                 <div key={i}>
                   {(i === increaseCount - 1 && i < 4 && (
+                    <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                     <Img
                       src={Duck}
                       position="absolute"
@@ -249,8 +256,15 @@ const MainGame = () => {
                       border="2px  red"
                       alt="Duck"
                     />
+                    </>
+                    
                   )) ||
                     (i === increaseCount - 1 && i >= 5 && (
+                      <>
+                      <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
@@ -260,8 +274,14 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     )) ||
                     (i === increaseCount - 1 && i === 4 && (
+                      <>
+                        <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
@@ -271,6 +291,7 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     ))}
                   <StackBox
                     count={i + 1}
@@ -365,8 +386,8 @@ const MainGame = () => {
           left="240px"
         >
           plus
-        </Button> */}
-        {/* <Button
+        </Button>
+        <Button
           position="absolute"
           onClick={handleCountMi}
           top="50px"
