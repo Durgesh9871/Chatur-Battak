@@ -41,7 +41,8 @@ userrouter.post("/login", async (req, res) => {
           let token = jwt.sign({ userID: user[0]._id }, "rajesh", {
             expiresIn: "1h",
           });
-          res.send({ msg: "login success", token: token });
+          console.log(user[0].name)
+          res.send({ msg: "login success", token: token,name:user[0].name,userId:user[0]._id });
         } else {
           res.send({ msg: "wrong credentials" });
         }

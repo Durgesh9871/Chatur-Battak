@@ -3,7 +3,7 @@ interface AuthContextType {
   authState:any;
   login:any;
   logout:any;
-  handleProdId:any
+  EnterGame:any
 }
 
 export const AuthContext = React.createContext<AuthContextType>(
@@ -17,6 +17,8 @@ function AuthContextProvider({ children }: any) {
     token: string;
     Name: string;
     email: string;
+    id:string,
+    gameId:string;
   }
   const [state, setState] = React.useState<State>({
     isAuth: false,
@@ -24,22 +26,22 @@ function AuthContextProvider({ children }: any) {
     Name: "",
     email: "",
     ProdId: "",
+    id:"",
+    gameId:"",
   });
-  const login = (token: string, Name: string, email: string) => {
+  const login = (token: string, Name: string, email: string,id:string) => {
     setState({
       ...state,
       isAuth: true,
       token,
       Name,
       email,
+      id,
     });
   };
-  const handleProdId = (id: string): void => {
-    setState({
-      ...state,
-      ProdId: id,
-    });
-  };
+  const EnterGame=(gameId:string)=>{
+    setState({...state,gameId})
+  }
   const logout = () => {
     setState({
       ...state,
@@ -47,11 +49,13 @@ function AuthContextProvider({ children }: any) {
       token: "",
       Name: "",
       email: "",
+      id:"",
+      gameId:""
     });
   };
   return (
     <AuthContext.Provider
-      value={{ authState: state, login, logout, handleProdId }}
+      value={{ authState: state, login, logout, EnterGame}}
     >
       {children}
     </AuthContext.Provider>
