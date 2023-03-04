@@ -83,6 +83,9 @@ const MainGame = () => {
   const audioRef = useRef(null);
   const beachRef = useRef(null);
   const navigate = useNavigate()
+  const [player1 , setPlayer1] = useState("Player1")
+  const [player2 , setPlayer2] = useState("Player2")
+
 
   const handlePlayClick = () => {
     audioRef.current.play();
@@ -145,7 +148,8 @@ const MainGame = () => {
       .then((res) => res.json())
       .then((res) => res.data)
       .then((res) => {
-        console.log(increaseCount);
+        setPlayer1(res.playerFirstUserName)
+        setPlayer2(res.playerSecondUserName)
         if (increaseCount === 0 || increaseCountUserTwo == 0 || count == 5) {
           handleGameOver();
         } else {
@@ -243,7 +247,7 @@ const MainGame = () => {
                   {(i === increaseCount - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                     <Img
@@ -261,7 +265,7 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i >= 5 && (
                       <>
                       <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
@@ -278,7 +282,7 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i === 4 && (
                       <>
                         <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
@@ -337,7 +341,7 @@ const MainGame = () => {
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 2</Text>
+                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
                <AiFillCaretDown style={{color:"white" }} />
                 </Box>
                     <Img
@@ -354,7 +358,7 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
@@ -371,7 +375,7 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i === 4 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
