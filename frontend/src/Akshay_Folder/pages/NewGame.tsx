@@ -17,7 +17,7 @@ const NewGame = () => {
   }
   const nav=useNavigate()
   const toast=useToast()
-  console.log(authState.gameId,authState.token,authState.userId)
+  console.log(authState.gameId,authState.token)
   const generate=async()=>{
     try {
      let data=await axios.get(`http://localhost:8080/games?q=${authState.gameId}`,{
