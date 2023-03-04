@@ -43,7 +43,7 @@ export const Login = () => {
         localStorage.setItem("token", res.token);
         console.log(res);
         if (res.token) {
-          login(res.token, res.name, res.email,res.id);
+          login(res.token, res.name, res.email,res.id,res.userId);
           toast({
             title: "Login Success.",
             description: "You have successfully logged in",

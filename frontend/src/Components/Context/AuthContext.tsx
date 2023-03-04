@@ -12,7 +12,7 @@ export const AuthContext = React.createContext<AuthContextType>(
 
 function AuthContextProvider({ children }: any) {
   interface State {
-    ProdId: string;
+    userId: string;
     isAuth: Boolean;
     token: string;
     Name: string;
@@ -25,11 +25,11 @@ function AuthContextProvider({ children }: any) {
     token: "",
     Name: "",
     email: "",
-    ProdId: "",
+    userId: "",
     id:"",
     gameId:"",
   });
-  const login = (token: string, Name: string, email: string,id:string) => {
+  const login = (token: string, Name: string, email: string,id:string,userId:string) => {
     setState({
       ...state,
       isAuth: true,
@@ -37,6 +37,7 @@ function AuthContextProvider({ children }: any) {
       Name,
       email,
       id,
+      userId
     });
   };
   const EnterGame=(gameId:string)=>{
