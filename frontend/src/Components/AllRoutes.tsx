@@ -8,7 +8,6 @@ import { DisplayData } from "../DisplayData";
 import { Login } from "../Sumit_Folder/Login";
 import { Signup } from "../Sumit_Folder/Signup";
 import PrivateRoute from "./PrivateRoutes";
-import Quiz from "./Quiz";
 
 const AllRoutes = () => {
   return (
@@ -20,7 +19,6 @@ const AllRoutes = () => {
       <Route path="/newgame" element={<NewGame />}></Route>
       <Route path="/joingame" element={<JoinGame />}></Route>
       <Route path="/game" element={<DisplayData />} />
-      <Route path="/quiz" element={<Quiz />} />
     </Routes>
   );
 };
