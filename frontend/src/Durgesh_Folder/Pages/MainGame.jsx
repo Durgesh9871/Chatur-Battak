@@ -245,7 +245,7 @@ const MainGame = () => {
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center"  >
                     <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
                     </Box>
                     <Img
                       src={Duck}
@@ -263,7 +263,7 @@ const MainGame = () => {
                       <>
                       <Box display="flex" flexDirection="column"  alignItems="center" >
                     <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
                     </Box>
                       <Img
                         src={goldDuck}
@@ -280,7 +280,7 @@ const MainGame = () => {
                       <>
                         <Box display="flex" flexDirection="column"  alignItems="center" >
                     <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
                     </Box>
                       <Img
                         src={growDuck}
@@ -339,7 +339,7 @@ const MainGame = () => {
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
                 <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 2</Text>
-               <AiFillCaretDown style={{color:"white" }} />
+               <AiFillCaretDown style={{color:"white" , marginLeft:"-22px" }} />
                 </Box>
                     <Img
                       src={Duck}
@@ -356,7 +356,7 @@ const MainGame = () => {
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
                     <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                   <AiFillCaretDown style={{color:"white",marginLeft:"-22px" }} />
                     </Box>
                       <Img
                         src={goldDuck}
@@ -373,7 +373,7 @@ const MainGame = () => {
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
                     <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"-22px" }} />
                     </Box>
                       <Img
                         src={growDuck}
