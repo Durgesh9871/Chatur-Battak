@@ -1,4 +1,4 @@
-import { Box, Button, Img , Text } from "@chakra-ui/react";
+import { Box,  Img , Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState ,useContext} from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
@@ -18,7 +18,8 @@ import { AuthContext } from "../../Components/Context/AuthContext";
 
 
 const MainGame = () => {
-  const {authState}=useContext(AuthContext)
+  const { authState } = useContext(AuthContext);
+
   const questions = [
     {
       question: "What is the capital of France?",
@@ -111,12 +112,14 @@ const MainGame = () => {
   };
 
   const handleAnswer = (ans) => {
-    console.log(ans)
     if (questions[count].answer === ans) {
       const payload = {
         gameId: authState.gameId,
+
         userId: authState.id,
+
       };
+      console.log(payload)
       axios
         .patch(`http://localhost:8080/games/rightAnswer`, payload)
         .then((res) => {
@@ -131,7 +134,9 @@ const MainGame = () => {
       axios
         .patch(`http://localhost:8080/games/wrongAnswer`, payload)
         .then((res) => {
-          setMsg(`Incorrect answer.Correct answer is ${questions[count].answer}`);
+          setMsg(
+            `Incorrect answer.Correct answer is ${questions[count].answer}`
+          );
         })
         .catch((err) => console.log("err", err));
     }
@@ -143,8 +148,7 @@ const MainGame = () => {
       .then((res) => res.json())
       .then((res) => res.data)
       .then((res) => {
-        console.log(increaseCount);
-        if (increaseCount === 0 || increaseCountUserTwo == 0 || count == 5) {
+        if (increaseCount === 0 || increaseCountUserTwo === 0 || count === 5) {
           handleGameOver();
         } else {
           if (count < 5) {
@@ -166,7 +170,15 @@ const MainGame = () => {
         }
       })
       .catch((err) => console.log("err", err));
-  }, [count, increaseCount, secondsRemaining, flag, msg]);
+  }, [
+    count,
+    increaseCount,
+    secondsRemaining,
+    flag,
+    msg,
+    increaseCountUserTwo,
+    authState.gameId,
+  ]);
 
   const volumeButtonStyle = {
     border: "2px solid #ffff",
@@ -181,14 +193,22 @@ const MainGame = () => {
   return (
     <Box className="mainGameBox">
       {/*  Game Stop 1st player is here ------------- */}
-      <Box id="playerWinner" overflow="hidden" display={game?"block":"none"}>
+      <Box
+        id="playerWinner"
+        overflow="hidden"
+        display={game ? "block" : "none"}
+      >
         {/* Box for crocodile ------- */}
-    
+
         <GameOver />
       </Box>
 
       {/*  Game Start from here ------------------------ */}
-      <Box className="waterMain" overflow="hidden" display={game?"none":"block"}>
+      <Box
+        className="waterMain"
+        overflow="hidden"
+        display={game ? "none" : "block"}
+      >
         {/* Audio */}
 
         <audio src={myAudioFile} loop ref={audioRef} />
@@ -244,14 +264,15 @@ const MainGame = () => {
                 <div key={i}>
                   {(i === increaseCount - 1 && i < 4 && (
                     <>
-                    <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+
+                    <Box display="flex" flexDirection="column"  alignItems="center"  >
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                     <Img
                       src={Duck}
                       position="absolute"
-                      right="3px"
+                      // right="3px"
                       width="6vw"
                       bottom={increaseCount === 1 && "36px"}
                       border="2px  red"
@@ -263,42 +284,73 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i >= 5 && (
                       <>
                       <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
+
                       <Img
-                        src={goldDuck}
+                        src={Duck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCount === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
                       />
+                    </>
+                  )) ||
+                    (i === increaseCount - 1 && i >= 5 && (
+                      <>
+                        <Box
+                          display="flex"
+                          flexDirection="column"
+                          alignItems="center"
+                        >
+                          <Text
+                            textAlign="center"
+                            fontSize="20px"
+                            color="#ffff"
+                            fontWeight="600"
+                          >
+                            Player 1
+                          </Text>
+                          <AiFillCaretDown style={{ color: "white" }} />
+                        </Box>
+                        <Img
+                          src={goldDuck}
+                          position="absolute"
+                          right="3px"
+                          width="6vw"
+                          bottom={increaseCount === 1 && "36px"}
+                          border="2px  red"
+                          alt="Duck"
+                        />
                       </>
                     )) ||
                     (i === increaseCount - 1 && i === 4 && (
                       <>
+
                         <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="600">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCount === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
                       />
+
                       </>
                     ))}
                   <StackBox
                     count={i + 1}
-                    color={i % 2 == 0 ? "#deb093" : "black"}
-                    border={i % 2 == 0 ? "black" : "#ffff"}
-                    text={i % 2 == 0 ? "black" : "#ffff"}
+                    color={i % 2 === 0 ? "#deb093" : "black"}
+                    border={i % 2 === 0 ? "black" : "#ffff"}
+                    text={i % 2 === 0 ? "black" : "#ffff"}
                   />
                 </div>
               );
@@ -330,7 +382,9 @@ const MainGame = () => {
           display="flex"
           flexDirection="column-reverse"
         >
-          {increaseCountUserTwo === 0 && <Box className="drownDuckSecond"> </Box>}
+          {increaseCountUserTwo === 0 && (
+            <Box className="drownDuckSecond"> </Box>
+          )}
           {Array(increaseCountUserTwo)
             .fill("")
             .map((_, i) => {
@@ -338,14 +392,15 @@ const MainGame = () => {
                 <div key={i}>
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
                     <>
+
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 2</Text>
-               <AiFillCaretDown style={{color:"white" }} />
+                <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 2</Text>
+               <AiFillCaretDown style={{color:"white" , marginLeft:"" }} />
                 </Box>
                     <Img
                       src={Duck}
                       position="absolute"
-                      right="3px"
+                      // right="3px"
                       width="6vw"
                       bottom={increaseCountUserTwo === 1 && "36px"}
                       border="2px  red"
@@ -356,35 +411,66 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white",marginLeft:"" }} />
                     </Box>
+
                       <Img
-                        src={goldDuck}
+                        src={Duck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCountUserTwo === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
                       />
+                    </>
+                  )) ||
+                    (i === increaseCountUserTwo - 1 && i >= 5 && (
+                      <>
+                        <Box
+                          display="flex"
+                          flexDirection="column"
+                          alignItems="center"
+                        >
+                          <Text
+                            textAlign="center"
+                            fontSize="20px"
+                            color="#ffff"
+                            fontWeight="700"
+                          >
+                            Player 1
+                          </Text>
+                          <AiFillCaretDown style={{ color: "white" }} />
+                        </Box>
+                        <Img
+                          src={goldDuck}
+                          position="absolute"
+                          right="3px"
+                          width="6vw"
+                          bottom={increaseCountUserTwo === 1 && "36px"}
+                          border="2px  red"
+                          alt="Duck"
+                        />
                       </>
                     )) ||
                     (i === increaseCountUserTwo - 1 && i === 4 && (
                       <>
+
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
-                   <AiFillCaretDown style={{color:"white" }} />
+                    <Text textAlign="center" fontSize="13px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" ,marginLeft:"" }} />
                     </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCountUserTwo === 1 && "36px"}
                         border="2px  red"
                         alt="Duck"
                       />
+
                       </>
                     ))}
                   <StackBox
