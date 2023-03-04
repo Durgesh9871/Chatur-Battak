@@ -244,7 +244,7 @@ const MainGame = () => {
                   {(i === increaseCount - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">Player 1</Text>
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                     <Img
@@ -336,6 +336,11 @@ const MainGame = () => {
               return (
                 <div key={i}>
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
+                    <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 2</Text>
+               <AiFillCaretDown style={{color:"white" }} />
+                </Box>
                     <Img
                       src={Duck}
                       position="absolute"
@@ -345,8 +350,14 @@ const MainGame = () => {
                       border="2px  red"
                       alt="Duck"
                     />
+                    </>
                   )) ||
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
+                      <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
@@ -356,8 +367,14 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     )) ||
                     (i === increaseCountUserTwo - 1 && i === 4 && (
+                      <>
+                    <Box display="flex" flexDirection="column"  alignItems="center" >
+                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">Player 1</Text>
+                   <AiFillCaretDown style={{color:"white" }} />
+                    </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
@@ -367,6 +384,7 @@ const MainGame = () => {
                         border="2px  red"
                         alt="Duck"
                       />
+                      </>
                     ))}
                   <StackBox
                     count={i + 1}
