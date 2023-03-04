@@ -10,7 +10,7 @@ GameRoute.get("/", async (req, res) => {
   let gameId=req.query.q
   console.log(req.headers.authorization)
   try {
-    const data = await GameModel.findOne({gameId});
+    const data = await GameModel.find({gameId});
     res.status(201).json({ data: data });
   } catch (err) {
     console.log(err);

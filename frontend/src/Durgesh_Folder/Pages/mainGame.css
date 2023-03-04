@@ -78,9 +78,9 @@
     background: url(croLunch.gif);
     z-index: 1;
     background-repeat: no-repeat;
-    height: 190px;
+    height: 170px;
     position: relative;
-    top: -130px;
+    top: -195px;
     width: 300px;
     animation: crocodile 9s linear infinite;
 
@@ -103,16 +103,63 @@
     z-index: 2;
     /* border: 2px solid red; */
     background-repeat: no-repeat;
-    height: 200px;
+    height: 190px;
     width: 300px ;
     position: relative;
-    top: -40px;
+    top: 0vh ;
     left: 2px;
     animation: crocodileLunch 9s linear infinite;
 }
 
 
+/*  Stack animation ------ */
+
+@keyframes dieFirst {
+    0% {
+        top: 0vh;
+
+    }
+
+    100% {
+        top: 100vh;
+    }
+}
+
+
+.drownDuck{
+    background: url(duckDrown.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    /* z-index: 1; */
+    top: 10vh;
+    left: 2px ;
+   height: 100px;
+   width: 200px;
+    
+}
+
+.drownDuckSecond{
+    background: url(duckDrown.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    /* z-index: 1; */
+    top: 10vh;
+    right: 0px ;
+   height: 100px;
+   width: 140px;
+   
+    /* animation: dieFirst 2s ease-in;  */
+}
 
 
 
+/*  After game over logic----------------- */
 
+#playerWinner{
+    background-color: red;
+    background-image: url(water_Image.gif);
+    background-size: cover;
+    height: 100vh;
+}

@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Game");
 });
 app.use("/user", userrouter);
-app.use(middleware);
+// app.use(middleware);
 
 app.use("/games", GameRoute);
 
