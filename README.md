@@ -1,8 +1,13 @@
 
 # Hackathon Project - Chatur Battak
 
-Hello Everyone, We've developed a game. Currently, we are pursuing the Full Stack Web Development course at Masai School.
+our 24-hour hackathon project - a multiplayer game that combines trivia quiz challenges with a fun and engaging user interface!
 
+In this fast-paced game, players can join together in real-time to answer trivia questions and compete for the highest score. The questions cover a variety of topics, ranging from pop culture and entertainment to science and technology, ensuring there's something for everyone to enjoy.
+
+But what really sets this game apart is its incredible user interface. We've worked tirelessly to create an experience that's both visually stunning and easy to navigate, with bold colors, dynamic animations, and intuitive controls that make it easy to jump in and start playing right away.
+
+Whether you're looking to challenge your friends or meet new people from around the world, our multiplayer quiz game is the perfect way to test your knowledge, have some fun, and enjoy
 
 
 
