@@ -4,27 +4,32 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { backendLink } from "../../BackendLink";
 import { AuthContext } from "../../Components/Context/AuthContext";
-
+interface Game {
+  playerFirstScore: number;
+  playerFirstUserName: string;
+  playerSecondScore: number;
+  playerSecondUserName: string;
+}
 const GameOver = () => {
-  const [seconds, setSeconds] = useState(10);
-  const { authState } = useContext(AuthContext);
-  const [game, setGame] = useState([]);
+  const [seconds, setSeconds] = useState<number>(10);
+  const { authState } = useContext<any>(AuthContext);
+  const [game, setGame] = useState<Game>();
 
-  
   //  Timer for minus count --------
   useEffect(() => {
     axios
-    .get(`${backendLink}/games?q=${authState.gameId}`)
-    .then((res) => {
-      setGame(res.data.data);
-    })
-    .catch((err) => console.log(err));
-    
+      .get(`${backendLink}/games?q=${authState.gameId}`)
+      .then((res) => {
+        setGame(res.data.data);
+      })
+      .catch((err) => console.log(err));
 
-
-    const timer =
-      seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
-    return () => clearInterval(timer);
+    let timer = seconds > 0 && setInterval(() => setSeconds(seconds - 1), 1000);
+    return () => {
+      if (typeof timer === "number") {
+        clearInterval(timer);
+      }
+    };
   }, [seconds]);
 
   //    Function for get back in lobby
@@ -33,10 +38,9 @@ const GameOver = () => {
     if (seconds == 0) {
       navigate("/homepage");
     }
-  }, [seconds])
+  }, [seconds]);
 
-  
-  // const {playerFirstScore , playerSecondScore , playerSecondUserName , playerFirstUserName} = game 
+  // const {playerFirstScore , playerSecondScore , playerSecondUserName , playerFirstUserName} = game
   console.log(game, "game play");
 
   return (
@@ -50,17 +54,18 @@ const GameOver = () => {
         </Box>
         <Heading>
           Winner{" "}
-          {(game.playerFirstScore > game.playerSecondScore && ( game.playerFirstUserName )) ||
-            (game.playerFirstScore < game.playerSecondScore && ( game.playerSecondUserName )) || (
-              game.playerFirstScore === game.playerSecondScore && "Draw"
-            )}{" "}
+          {(game&&game.playerFirstScore > game.playerSecondScore &&
+            game&&game.playerFirstUserName) ||
+            (game&&game.playerFirstScore < game.playerSecondScore &&
+              game.playerSecondUserName) ||
+            (game&&game.playerFirstScore === game.playerSecondScore && "Draw")}{" "}
         </Heading>
         <Box display="flex" justifyContent="space-between">
           {/* Player 1 stats------ */}
           <Box fontFamily="Press2p" textAlign="left" px="10px">
             <Text>Player 1</Text>
-            <Text mt="10px">{game.playerFirstUserName}</Text>
-            <Text mt="10px">Score {game.playerFirstScore}</Text>
+            <Text mt="10px">{game?.playerFirstUserName}</Text>
+            <Text mt="10px">Score {game?.playerFirstScore}</Text>
           </Box>
 
           <Box borderRight="2px solid black"></Box>
@@ -68,12 +73,12 @@ const GameOver = () => {
           {/* Player -2 ------- */}
           <Box fontFamily="Press2p" textAlign="left" px="10px">
             <Text>Player 2</Text>
-            <Text mt="10px">{game.playerSecondUserName}</Text>
-            <Text mt="10px">Score {game.playerSecondScore}</Text>
+            <Text mt="10px">{game?.playerSecondUserName}</Text>
+            <Text mt="10px">Score {game?.playerSecondScore}</Text>
           </Box>
         </Box>
         <Link to="/homepage">
-          <Text
+          <Button
             className="buttons"
             bgColor="yellow"
             textAlign="center"
@@ -83,7 +88,7 @@ const GameOver = () => {
             disabled={true}
           >
             Exit
-          </Text>
+          </Button>
         </Link>
       </Box>
     </Box>

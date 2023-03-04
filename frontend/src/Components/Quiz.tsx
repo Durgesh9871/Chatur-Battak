@@ -8,7 +8,15 @@ import {
   CircularProgress,
   CircularProgressLabel,
 } from "@chakra-ui/react";
-const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
+type QuizProp={
+  handleAnswer:any,
+  msg:string,
+  secondsRemaining:number,
+  count:number,
+  flag:boolean,
+  questions:any
+}
+const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}:QuizProp) => {
   return (
     <Box
       p="5"
