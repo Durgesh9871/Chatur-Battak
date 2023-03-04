@@ -141,7 +141,7 @@ const MainGame = () => {
       .then((res) => res.data[0])
       .then((res) => {
         console.log(increaseCount);
-        if (increaseCount === 0) {
+        if (increaseCount === 0 || increaseCountUserTwo == 0 || count == 5) {
           handleGameOver();
         } else {
           if (count < 5) {
