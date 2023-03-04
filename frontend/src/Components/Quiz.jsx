@@ -13,8 +13,8 @@ const Quiz = ({handleAnswer,msg,secondsRemaining,count,flag,questions}) => {
     <Box
       p="5"
       w="900px"
-      mt="250px"
-      ml="280px"
+      mt="28.5%"
+      ml="30.5%"
       bg={"#918c27"}
       border="2px  red"
       boxShadow="  0 0 0 10px #98ee52,
