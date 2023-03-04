@@ -4,6 +4,7 @@ import{Box,Heading,Button,Text,Input,Stack,useToast} from "@chakra-ui/react"
 import axios from "axios"
 import { AuthContext } from '../../Components/Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { backendLink } from '../../BackendLink';
 const JoinGame = () => {
   const [value,setValue]=useState("")
   const {authState,EnterGame}=useContext(AuthContext);
@@ -16,7 +17,7 @@ const JoinGame = () => {
   }
   const handleSubmit=async()=>{
       try {
-          let data=await axios.patch("http://localhost:8080/games/addSeconPlayer",{gameId:value,name:authState.Name,userId:authState.id},{
+          let data=await axios.patch(`${backendLink}/games/addSeconPlayer`,{gameId:value,name:authState.Name,userId:authState.id},{
             headers:{
               "Authorization":authState.token
             }

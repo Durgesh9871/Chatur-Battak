@@ -16,6 +16,7 @@ import { GameOver } from "../Components/GameOver";
 import { AiFillCaretDown } from "react-icons/ai";
 import { AuthContext } from "../../Components/Context/AuthContext";
 import { useNavigate } from "react-router";
+import { backendLink } from "../../BackendLink";
 
 
 const MainGame = () => {
@@ -123,7 +124,7 @@ const MainGame = () => {
         userId: authState.id,
       };
       axios
-        .patch(`http://localhost:8080/games/rightAnswer`, payload)
+        .patch(`${backendLink}/games/rightAnswer`, payload)
         .then((res) => {
           setMsg("Correct answer. Good job.");
         })
@@ -134,7 +135,7 @@ const MainGame = () => {
         userId: authState.id,
       };
       axios
-        .patch(`http://localhost:8080/games/wrongAnswer`, payload)
+        .patch(`${backendLink}/games/wrongAnswer`, payload)
         .then((res) => {
           setMsg(`Incorrect answer.Correct answer is ${questions[count].answer}`);
         })
@@ -144,7 +145,7 @@ const MainGame = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8080/games?q=${authState.gameId}`)
+    fetch(`${backendLink}/games?q=${authState.gameId}`)
       .then((res) => res.json())
       .then((res) => res.data)
       .then((res) => {

@@ -2,6 +2,7 @@ import { Box, Button, Heading, Text, Input } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { backendLink } from "../../BackendLink";
 import { AuthContext } from "../../Components/Context/AuthContext";
 
 const GameOver = () => {
@@ -13,7 +14,7 @@ const GameOver = () => {
   //  Timer for minus count --------
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/games?q=${authState.gameId}`)
+    .get(`${backendLink}/games?q=${authState.gameId}`)
     .then((res) => {
       setGame(res.data.data);
     })

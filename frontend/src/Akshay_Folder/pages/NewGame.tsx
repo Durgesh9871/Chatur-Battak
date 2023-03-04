@@ -5,6 +5,7 @@ import  "./NewGame.css"
 import { AuthContext } from "../../Components/Context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { backendLink } from "../../BackendLink";
 const NewGame = () => {
   const {authState}=useContext(AuthContext);
   const [flag,setFlag]=useState(false);
@@ -20,7 +21,7 @@ const NewGame = () => {
   console.log(authState.gameId,authState.token)
   const generate=async()=>{
     try {
-     let data=await axios.get(`http://localhost:8080/games?q=${authState.gameId}`,{
+     let data=await axios.get(`${backendLink}/games?q=${authState.gameId}`,{
         headers:{
           "Authorization":authState.token
         }

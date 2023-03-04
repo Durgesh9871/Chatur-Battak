@@ -18,6 +18,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./Signup.css";
+import { backendLink } from "../BackendLink";
 export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
@@ -31,7 +32,7 @@ export const Signup = () => {
       email,
       password,
     };
-    fetch("http://localhost:8080/user/register", {
+    fetch(`${backendLink}/user/register`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

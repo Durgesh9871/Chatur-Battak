@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/Context/AuthContext";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import "./Signup.css";
+import { backendLink } from "../BackendLink";
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ export const Login = () => {
       email,
       password,
     };
-    fetch("http://localhost:8080/user/login", {
+    fetch(`${backendLink}/user/login`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

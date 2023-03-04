@@ -6,11 +6,12 @@ import {useContext, useEffect,useState} from "react"
 import { AuthContext } from "../../Components/Context/AuthContext";
 import axios from "axios"; 
 import  "./Homepage.css"
+import { backendLink } from "../../BackendLink";
 const Homepage = () => {
   const {authState,EnterGame}=useContext(AuthContext)
   const generate=async()=>{
     try {
-      let data=await axios.post("http://localhost:8080/games/newGame",{name:authState.Name,userId:authState.id},{
+      let data=await axios.post(`${backendLink}/games/newGame`,{name:authState.Name,userId:authState.id},{
           headers:{
             "Authorization":authState.token
           }
