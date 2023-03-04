@@ -1,3 +1,4 @@
+<h1 align="center">Chatur Battak</h1>
 
 # Hackathon Project - Chatur Battak
 
