@@ -247,13 +247,13 @@ const MainGame = () => {
                   {(i === increaseCount - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player1}</Text>
+                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                     <Img
                       src={Duck}
                       position="absolute"
-                      right="3px"
+                      // right="3px"
                       width="6vw"
                       bottom={increaseCount === 1 && "36px"}
                       border="2px  red"
@@ -265,13 +265,13 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i >= 5 && (
                       <>
                       <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">{player1}</Text>
+                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCount === 1 && "36px"}
                         border="2px  red"
@@ -282,13 +282,13 @@ const MainGame = () => {
                     (i === increaseCount - 1 && i === 4 && (
                       <>
                         <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="600">{player1}</Text>
+                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="600">{player1}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCount === 1 && "36px"}
                         border="2px  red"
@@ -341,13 +341,13 @@ const MainGame = () => {
                   {(i === increaseCountUserTwo - 1 && i < 4 && (
                     <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
+                <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">{player2}</Text>
                <AiFillCaretDown style={{color:"white" }} />
                 </Box>
                     <Img
                       src={Duck}
                       position="absolute"
-                      right="3px"
+                      // right="3px"
                       width="6vw"
                       bottom={increaseCountUserTwo === 1 && "36px"}
                       border="2px  red"
@@ -358,13 +358,13 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i >= 5 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
+                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">{player2}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
                         src={goldDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCountUserTwo === 1 && "36px"}
                         border="2px  red"
@@ -375,13 +375,13 @@ const MainGame = () => {
                     (i === increaseCountUserTwo - 1 && i === 4 && (
                       <>
                     <Box display="flex" flexDirection="column"  alignItems="center" >
-                    <Text textAlign="center" fontSize="20px" color="#ffff" fontWeight="700">{player2}</Text>
+                    <Text textAlign="center" fontSize="16px" color="#ffff" fontWeight="700">{player2}</Text>
                    <AiFillCaretDown style={{color:"white" }} />
                     </Box>
                       <Img
                         src={growDuck}
                         position="absolute"
-                        right="3px"
+                        // right="3px"
                         width="6vw"
                         bottom={increaseCountUserTwo === 1 && "36px"}
                         border="2px  red"
