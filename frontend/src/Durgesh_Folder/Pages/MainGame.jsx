@@ -1,5 +1,5 @@
 import { Box, Button, Img , Text } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState ,useContext} from "react";
 import "./mainGame.css";
 import sky from "./Sky_cloud.png";
 import myAudioFile from "./audio.mp3";
@@ -14,10 +14,11 @@ import growDuck from "./growDuck.gif";
 import axios from "axios";
 import { GameOver } from "../Components/GameOver";
 import { AiFillCaretDown } from "react-icons/ai";
+import { AuthContext } from "../../Components/Context/AuthContext";
 
 
 const MainGame = () => {
-  
+  const {authState}=useContext(AuthContext)
   const questions = [
     {
       question: "What is the capital of France?",
@@ -113,8 +114,8 @@ const MainGame = () => {
     console.log(ans)
     if (questions[count].answer === ans) {
       const payload = {
-        gameId: "m^8Bq6",
-        userId: "fw20_0845_6675",
+        gameId: authState.gameId,
+        userId: authState.id,
       };
       axios
         .patch(`http://localhost:8080/games/rightAnswer`, payload)
@@ -124,8 +125,8 @@ const MainGame = () => {
         .catch((err) => console.log("err", err));
     } else {
       const payload = {
-        gameId: "m^8Bq6",
-        userId: "fw20_0845_6675",
+        gameId: authState.gameId,
+        userId: authState.id,
       };
       axios
         .patch(`http://localhost:8080/games/wrongAnswer`, payload)
@@ -138,9 +139,9 @@ const MainGame = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:8080/games?id=m^8Bq6`)
+    fetch(`http://localhost:8080/games?q=${authState.gameId}`)
       .then((res) => res.json())
-      .then((res) => res.data[0])
+      .then((res) => res.data)
       .then((res) => {
         console.log(increaseCount);
         if (increaseCount === 0 || increaseCountUserTwo == 0 || count == 5) {

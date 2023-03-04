@@ -42,7 +42,7 @@ userrouter.post("/login", async (req, res) => {
             expiresIn: "1h",
           });
           console.log(user[0].name)
-          res.send({ msg: "login success", token: token,name:user[0].name,userId:user[0]._id });
+          res.send({ msg: "login success", token: token,name:user[0].name,_id:user[0]._id });
         } else {
           res.send({ msg: "wrong credentials" });
         }
